@@ -16,12 +16,14 @@ public abstract class User {
 	private String password;
 	private String name;
 	private String surname;
+	private boolean isAdmin;
 
-	public User(String username, String password, String name, String surname) {
+	public User(String username, String password, String name, String surname, boolean isAdmin) {
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.surname = surname;
+		this.isAdmin = isAdmin;
 	}
 
 	public String getPassword() {
@@ -42,6 +44,10 @@ public abstract class User {
 
 	public String getSurname() {
 		return surname;
+	}
+
+	public boolean isAdmin() {
+		return isAdmin;
 	}
 
 }
