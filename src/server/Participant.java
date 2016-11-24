@@ -4,8 +4,8 @@ public class Participant extends User implements Comparable<User> {
 
 	private String idPaper;
 
-	public Participant(String username, String password, String name, String surname, String idPaper, boolean isAdmin) {
-		super(username, password, name, surname, isAdmin);
+	public Participant(String username, String password, String name, String surname, String idPaper) {
+		super(username, password, name, surname, false);
 		this.idPaper = idPaper;
 	}
 
