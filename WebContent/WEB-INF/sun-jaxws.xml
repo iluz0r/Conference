@@ -4,4 +4,6 @@
 	version='2.0'>
 	<endpoint name="Conference" implementation="server.Conference"
 		url-pattern="/conference" />
+	<endpoint name="User" implementation="server.User"
+		url-pattern="/user" />
 </endpoints>
