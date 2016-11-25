@@ -30,4 +30,16 @@ public class Participant extends User implements Comparable<User> {
 		return getUsername().compareTo(user.getUsername());
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		User user = (User) o;
+
+		if (user.isAdmin())
+			return getUsername().equals(user.getUsername());
+		else {
+			Participant p = (Participant) user;
+			return getUsername().equals(user.getUsername()) || idPaper.equals(p.getIdPaper());
+		}
+	}
+
 }

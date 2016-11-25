@@ -11,4 +11,10 @@ public class Admin extends User implements Comparable<User> {
 		return getUsername().compareTo(user.getUsername());
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		User user = (User) o;
+		return getUsername().equals(user.getUsername());
+	}
+
 }

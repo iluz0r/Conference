@@ -49,5 +49,8 @@ public abstract class User {
 	public boolean isAdmin() {
 		return isAdmin;
 	}
+	
+	@Override
+	public abstract boolean equals(Object o);
 
 }
