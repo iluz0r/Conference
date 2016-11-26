@@ -7,7 +7,6 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
-import javax.xml.ws.FaultAction;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 import javax.xml.ws.wsaddressing.W3CEndpointReference;
@@ -35,15 +34,12 @@ public interface Conference {
      * @param arg0
      * @return
      *     returns javax.xml.ws.wsaddressing.W3CEndpointReference
-     * @throws Exception_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "register", targetNamespace = "http://server/", className = "stub.Register")
     @ResponseWrapper(localName = "registerResponse", targetNamespace = "http://server/", className = "stub.RegisterResponse")
-    @Action(input = "http://server/Conference/registerRequest", output = "http://server/Conference/registerResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://server/Conference/register/Fault/Exception")
-    })
+    @Action(input = "http://server/Conference/registerRequest", output = "http://server/Conference/registerResponse")
     public W3CEndpointReference register(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
@@ -54,8 +50,6 @@ public interface Conference {
         @WebParam(name = "arg3", targetNamespace = "")
         String arg3,
         @WebParam(name = "arg4", targetNamespace = "")
-        String arg4)
-        throws Exception_Exception
-    ;
+        String arg4);
 
 }

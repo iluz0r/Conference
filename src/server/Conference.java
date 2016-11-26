@@ -11,8 +11,8 @@ public class Conference {
 
 	private List<Participant> users = new ArrayList<>();
 
-	public W3CEndpointReference register(String username, String password, String name, String surname, String idPaper)
-			throws Exception {
+	public W3CEndpointReference register(String username, String password, String name, String surname,
+			String idPaper) {
 		if (username.equals("admin") && password.equals("admin")) {
 			Admin admin = new Admin(username, password, name, surname);
 			return Admin.manager.export(admin);
@@ -27,7 +27,7 @@ public class Conference {
 				users.add(user);
 				return Participant.manager.export(user);
 			} else
-				throw new Exception("Username or paper already registered.");
+				throw new RuntimeException("Username or paper already registered.");
 		}
 	}
 
