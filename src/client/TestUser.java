@@ -4,9 +4,6 @@ import javax.xml.ws.wsaddressing.W3CEndpointReference;
 
 import stub.Conference;
 import stub.ConferenceService;
-import stub.Admin;
-import stub.AdminService;
-import stub.Participant;
 import stub.User;
 import stub.UserService;
 
