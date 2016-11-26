@@ -11,7 +11,7 @@ import com.sun.xml.ws.developer.StatefulWebServiceManager;
 @Addressing
 public class Participant extends User {
 
-	public static StatefulWebServiceManager<User> manager;
+	public static StatefulWebServiceManager<Participant> manager;
 	private String idPaper;
 
 	public Participant(String username, String password, String name, String surname, String idPaper) {

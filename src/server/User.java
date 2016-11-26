@@ -4,14 +4,12 @@ import javax.jws.WebService;
 import javax.xml.ws.soap.Addressing;
 
 import com.sun.xml.ws.developer.Stateful;
-import com.sun.xml.ws.developer.StatefulWebServiceManager;
 
 @WebService
 @Stateful
 @Addressing
 public abstract class User {
 
-	public static StatefulWebServiceManager<User> manager;
 	private String username;
 	private String password;
 	private String name;
