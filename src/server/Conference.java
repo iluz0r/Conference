@@ -9,16 +9,15 @@ import javax.xml.ws.wsaddressing.W3CEndpointReference;
 @WebService
 public class Conference {
 
-	private List<User> users = new ArrayList<>();
+	private List<Participant> users = new ArrayList<>();
 
-	public W3CEndpointReference register(String username, String password, String name, String surname,
-			String idPaper) {
-		User user = null;
-
-		if (username.equals("admin") && password.equals("admin"))
-			user = new Admin(username, password, name, surname);
-		else {
-			user = new Participant(username, password, name, surname, idPaper);
+	public W3CEndpointReference register(String username, String password, String name, String surname, String idPaper)
+			throws Exception {
+		if (username.equals("admin") && password.equals("admin")) {
+			Admin admin = new Admin(username, password, name, surname);
+			return Admin.manager.export(admin);
+		} else {
+			Participant user = new Participant(username, password, name, surname, idPaper);
 
 			// La users.indexOf(user) funziona grazie all'override del metodo
 			// equals nella classe Participant. In sostanza, la indexOf non
@@ -26,12 +25,10 @@ public class Conference {
 			// implementato in Participant.
 			if (users.indexOf(user) == -1) {
 				users.add(user);
-				System.out.println("Utente " + username + " aggiunto alla lista partecipanti.");
+				return Participant.manager.export(user);
 			} else
-				System.out.println("Utente " + username + " risulta già iscritto alla conferenza.");
+				throw new Exception("Username or paper already registered.");
 		}
-
-		return User.manager.export(user);
 	}
 
 }

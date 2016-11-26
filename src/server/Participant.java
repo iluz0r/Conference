@@ -1,7 +1,17 @@
 package server;
 
+import javax.jws.WebService;
+import javax.xml.ws.soap.Addressing;
+
+import com.sun.xml.ws.developer.Stateful;
+import com.sun.xml.ws.developer.StatefulWebServiceManager;
+
+@WebService
+@Stateful
+@Addressing
 public class Participant extends User {
 
+	public static StatefulWebServiceManager<User> manager;
 	private String idPaper;
 
 	public Participant(String username, String password, String name, String surname, String idPaper) {

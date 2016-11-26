@@ -49,7 +49,23 @@ public abstract class User {
 	public boolean isAdmin() {
 		return isAdmin;
 	}
-	
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
 	@Override
 	public abstract boolean equals(Object o);
 

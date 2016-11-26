@@ -5,7 +5,6 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import javax.xml.ws.wsaddressing.W3CEndpointReference;
 
 
 /**
@@ -25,21 +24,30 @@ import javax.xml.ws.wsaddressing.W3CEndpointReference;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ReplyTo_QNAME = new QName("http://www.w3.org/2005/08/addressing", "ReplyTo");
-    private final static QName _ProblemAction_QNAME = new QName("http://www.w3.org/2005/08/addressing", "ProblemAction");
-    private final static QName _ProblemHeaderQName_QNAME = new QName("http://www.w3.org/2005/08/addressing", "ProblemHeaderQName");
-    private final static QName _To_QNAME = new QName("http://www.w3.org/2005/08/addressing", "To");
-    private final static QName _ProblemIRI_QNAME = new QName("http://www.w3.org/2005/08/addressing", "ProblemIRI");
-    private final static QName _MessageID_QNAME = new QName("http://www.w3.org/2005/08/addressing", "MessageID");
-    private final static QName _Action_QNAME = new QName("http://www.w3.org/2005/08/addressing", "Action");
-    private final static QName _Register_QNAME = new QName("http://server/", "register");
-    private final static QName _ReferenceParameters_QNAME = new QName("http://www.w3.org/2005/08/addressing", "ReferenceParameters");
-    private final static QName _FaultTo_QNAME = new QName("http://www.w3.org/2005/08/addressing", "FaultTo");
-    private final static QName _RetryAfter_QNAME = new QName("http://www.w3.org/2005/08/addressing", "RetryAfter");
-    private final static QName _RegisterResponse_QNAME = new QName("http://server/", "registerResponse");
-    private final static QName _From_QNAME = new QName("http://www.w3.org/2005/08/addressing", "From");
-    private final static QName _Metadata_QNAME = new QName("http://www.w3.org/2005/08/addressing", "Metadata");
-    private final static QName _RelatesTo_QNAME = new QName("http://www.w3.org/2005/08/addressing", "RelatesTo");
+    private final static QName _GetIdPaper_QNAME = new QName("http://server/", "getIdPaper");
+    private final static QName _GetUsername_QNAME = new QName("http://server/", "getUsername");
+    private final static QName _GetUsernameResponse_QNAME = new QName("http://server/", "getUsernameResponse");
+    private final static QName _GetIdPaperResponse_QNAME = new QName("http://server/", "getIdPaperResponse");
+    private final static QName _IsAdmin_QNAME = new QName("http://server/", "isAdmin");
+    private final static QName _SetSurnameResponse_QNAME = new QName("http://server/", "setSurnameResponse");
+    private final static QName _GetNameResponse_QNAME = new QName("http://server/", "getNameResponse");
+    private final static QName _IsAdminResponse_QNAME = new QName("http://server/", "isAdminResponse");
+    private final static QName _SetUsername_QNAME = new QName("http://server/", "setUsername");
+    private final static QName _SetUsernameResponse_QNAME = new QName("http://server/", "setUsernameResponse");
+    private final static QName _GetName_QNAME = new QName("http://server/", "getName");
+    private final static QName _SetName_QNAME = new QName("http://server/", "setName");
+    private final static QName _SetNameResponse_QNAME = new QName("http://server/", "setNameResponse");
+    private final static QName _SetPassword_QNAME = new QName("http://server/", "setPassword");
+    private final static QName _GetSurname_QNAME = new QName("http://server/", "getSurname");
+    private final static QName _SetAdmin_QNAME = new QName("http://server/", "setAdmin");
+    private final static QName _GetSurnameResponse_QNAME = new QName("http://server/", "getSurnameResponse");
+    private final static QName _GetPasswordResponse_QNAME = new QName("http://server/", "getPasswordResponse");
+    private final static QName _SetPasswordResponse_QNAME = new QName("http://server/", "setPasswordResponse");
+    private final static QName _EqualsResponse_QNAME = new QName("http://server/", "equalsResponse");
+    private final static QName _SetAdminResponse_QNAME = new QName("http://server/", "setAdminResponse");
+    private final static QName _Equals_QNAME = new QName("http://server/", "equals");
+    private final static QName _SetSurname_QNAME = new QName("http://server/", "setSurname");
+    private final static QName _GetPassword_QNAME = new QName("http://server/", "getPassword");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: stub
@@ -49,210 +57,411 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RegisterResponse }
+     * Create an instance of {@link SetName }
      * 
      */
-    public RegisterResponse createRegisterResponse() {
-        return new RegisterResponse();
+    public SetName createSetName() {
+        return new SetName();
     }
 
     /**
-     * Create an instance of {@link Register }
+     * Create an instance of {@link SetNameResponse }
      * 
      */
-    public Register createRegister() {
-        return new Register();
+    public SetNameResponse createSetNameResponse() {
+        return new SetNameResponse();
     }
 
     /**
-     * Create an instance of {@link AttributedURIType }
+     * Create an instance of {@link SetPassword }
      * 
      */
-    public AttributedURIType createAttributedURIType() {
-        return new AttributedURIType();
+    public SetPassword createSetPassword() {
+        return new SetPassword();
     }
 
     /**
-     * Create an instance of {@link ReferenceParametersType }
+     * Create an instance of {@link GetName }
      * 
      */
-    public ReferenceParametersType createReferenceParametersType() {
-        return new ReferenceParametersType();
+    public GetName createGetName() {
+        return new GetName();
     }
 
     /**
-     * Create an instance of {@link AttributedUnsignedLongType }
+     * Create an instance of {@link IsAdminResponse }
      * 
      */
-    public AttributedUnsignedLongType createAttributedUnsignedLongType() {
-        return new AttributedUnsignedLongType();
+    public IsAdminResponse createIsAdminResponse() {
+        return new IsAdminResponse();
     }
 
     /**
-     * Create an instance of {@link MetadataType }
+     * Create an instance of {@link SetUsername }
      * 
      */
-    public MetadataType createMetadataType() {
-        return new MetadataType();
+    public SetUsername createSetUsername() {
+        return new SetUsername();
     }
 
     /**
-     * Create an instance of {@link RelatesToType }
+     * Create an instance of {@link SetUsernameResponse }
      * 
      */
-    public RelatesToType createRelatesToType() {
-        return new RelatesToType();
+    public SetUsernameResponse createSetUsernameResponse() {
+        return new SetUsernameResponse();
     }
 
     /**
-     * Create an instance of {@link ProblemActionType }
+     * Create an instance of {@link GetNameResponse }
      * 
      */
-    public ProblemActionType createProblemActionType() {
-        return new ProblemActionType();
+    public GetNameResponse createGetNameResponse() {
+        return new GetNameResponse();
     }
 
     /**
-     * Create an instance of {@link AttributedQNameType }
+     * Create an instance of {@link SetSurnameResponse }
      * 
      */
-    public AttributedQNameType createAttributedQNameType() {
-        return new AttributedQNameType();
+    public SetSurnameResponse createSetSurnameResponse() {
+        return new SetSurnameResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link W3CEndpointReference }{@code >}}
+     * Create an instance of {@link GetIdPaperResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "ReplyTo")
-    public JAXBElement<W3CEndpointReference> createReplyTo(W3CEndpointReference value) {
-        return new JAXBElement<W3CEndpointReference>(_ReplyTo_QNAME, W3CEndpointReference.class, null, value);
+    public GetIdPaperResponse createGetIdPaperResponse() {
+        return new GetIdPaperResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ProblemActionType }{@code >}}
+     * Create an instance of {@link IsAdmin }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "ProblemAction")
-    public JAXBElement<ProblemActionType> createProblemAction(ProblemActionType value) {
-        return new JAXBElement<ProblemActionType>(_ProblemAction_QNAME, ProblemActionType.class, null, value);
+    public IsAdmin createIsAdmin() {
+        return new IsAdmin();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AttributedQNameType }{@code >}}
+     * Create an instance of {@link GetUsernameResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "ProblemHeaderQName")
-    public JAXBElement<AttributedQNameType> createProblemHeaderQName(AttributedQNameType value) {
-        return new JAXBElement<AttributedQNameType>(_ProblemHeaderQName_QNAME, AttributedQNameType.class, null, value);
+    public GetUsernameResponse createGetUsernameResponse() {
+        return new GetUsernameResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AttributedURIType }{@code >}}
+     * Create an instance of {@link GetIdPaper }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "To")
-    public JAXBElement<AttributedURIType> createTo(AttributedURIType value) {
-        return new JAXBElement<AttributedURIType>(_To_QNAME, AttributedURIType.class, null, value);
+    public GetIdPaper createGetIdPaper() {
+        return new GetIdPaper();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AttributedURIType }{@code >}}
+     * Create an instance of {@link GetUsername }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "ProblemIRI")
-    public JAXBElement<AttributedURIType> createProblemIRI(AttributedURIType value) {
-        return new JAXBElement<AttributedURIType>(_ProblemIRI_QNAME, AttributedURIType.class, null, value);
+    public GetUsername createGetUsername() {
+        return new GetUsername();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AttributedURIType }{@code >}}
+     * Create an instance of {@link GetPassword }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "MessageID")
-    public JAXBElement<AttributedURIType> createMessageID(AttributedURIType value) {
-        return new JAXBElement<AttributedURIType>(_MessageID_QNAME, AttributedURIType.class, null, value);
+    public GetPassword createGetPassword() {
+        return new GetPassword();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AttributedURIType }{@code >}}
+     * Create an instance of {@link SetSurname }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "Action")
-    public JAXBElement<AttributedURIType> createAction(AttributedURIType value) {
-        return new JAXBElement<AttributedURIType>(_Action_QNAME, AttributedURIType.class, null, value);
+    public SetSurname createSetSurname() {
+        return new SetSurname();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Register }{@code >}}
+     * Create an instance of {@link SetAdminResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://server/", name = "register")
-    public JAXBElement<Register> createRegister(Register value) {
-        return new JAXBElement<Register>(_Register_QNAME, Register.class, null, value);
+    public SetAdminResponse createSetAdminResponse() {
+        return new SetAdminResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceParametersType }{@code >}}
+     * Create an instance of {@link Equals }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "ReferenceParameters")
-    public JAXBElement<ReferenceParametersType> createReferenceParameters(ReferenceParametersType value) {
-        return new JAXBElement<ReferenceParametersType>(_ReferenceParameters_QNAME, ReferenceParametersType.class, null, value);
+    public Equals createEquals() {
+        return new Equals();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link W3CEndpointReference }{@code >}}
+     * Create an instance of {@link EqualsResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "FaultTo")
-    public JAXBElement<W3CEndpointReference> createFaultTo(W3CEndpointReference value) {
-        return new JAXBElement<W3CEndpointReference>(_FaultTo_QNAME, W3CEndpointReference.class, null, value);
+    public EqualsResponse createEqualsResponse() {
+        return new EqualsResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AttributedUnsignedLongType }{@code >}}
+     * Create an instance of {@link GetPasswordResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "RetryAfter")
-    public JAXBElement<AttributedUnsignedLongType> createRetryAfter(AttributedUnsignedLongType value) {
-        return new JAXBElement<AttributedUnsignedLongType>(_RetryAfter_QNAME, AttributedUnsignedLongType.class, null, value);
+    public GetPasswordResponse createGetPasswordResponse() {
+        return new GetPasswordResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterResponse }{@code >}}
+     * Create an instance of {@link SetPasswordResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://server/", name = "registerResponse")
-    public JAXBElement<RegisterResponse> createRegisterResponse(RegisterResponse value) {
-        return new JAXBElement<RegisterResponse>(_RegisterResponse_QNAME, RegisterResponse.class, null, value);
+    public SetPasswordResponse createSetPasswordResponse() {
+        return new SetPasswordResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link W3CEndpointReference }{@code >}}
+     * Create an instance of {@link SetAdmin }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "From")
-    public JAXBElement<W3CEndpointReference> createFrom(W3CEndpointReference value) {
-        return new JAXBElement<W3CEndpointReference>(_From_QNAME, W3CEndpointReference.class, null, value);
+    public SetAdmin createSetAdmin() {
+        return new SetAdmin();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MetadataType }{@code >}}
+     * Create an instance of {@link GetSurnameResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "Metadata")
-    public JAXBElement<MetadataType> createMetadata(MetadataType value) {
-        return new JAXBElement<MetadataType>(_Metadata_QNAME, MetadataType.class, null, value);
+    public GetSurnameResponse createGetSurnameResponse() {
+        return new GetSurnameResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RelatesToType }{@code >}}
+     * Create an instance of {@link GetSurname }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.w3.org/2005/08/addressing", name = "RelatesTo")
-    public JAXBElement<RelatesToType> createRelatesTo(RelatesToType value) {
-        return new JAXBElement<RelatesToType>(_RelatesTo_QNAME, RelatesToType.class, null, value);
+    public GetSurname createGetSurname() {
+        return new GetSurname();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetIdPaper }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getIdPaper")
+    public JAXBElement<GetIdPaper> createGetIdPaper(GetIdPaper value) {
+        return new JAXBElement<GetIdPaper>(_GetIdPaper_QNAME, GetIdPaper.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetUsername }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getUsername")
+    public JAXBElement<GetUsername> createGetUsername(GetUsername value) {
+        return new JAXBElement<GetUsername>(_GetUsername_QNAME, GetUsername.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetUsernameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getUsernameResponse")
+    public JAXBElement<GetUsernameResponse> createGetUsernameResponse(GetUsernameResponse value) {
+        return new JAXBElement<GetUsernameResponse>(_GetUsernameResponse_QNAME, GetUsernameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetIdPaperResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getIdPaperResponse")
+    public JAXBElement<GetIdPaperResponse> createGetIdPaperResponse(GetIdPaperResponse value) {
+        return new JAXBElement<GetIdPaperResponse>(_GetIdPaperResponse_QNAME, GetIdPaperResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link IsAdmin }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "isAdmin")
+    public JAXBElement<IsAdmin> createIsAdmin(IsAdmin value) {
+        return new JAXBElement<IsAdmin>(_IsAdmin_QNAME, IsAdmin.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetSurnameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setSurnameResponse")
+    public JAXBElement<SetSurnameResponse> createSetSurnameResponse(SetSurnameResponse value) {
+        return new JAXBElement<SetSurnameResponse>(_SetSurnameResponse_QNAME, SetSurnameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetNameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getNameResponse")
+    public JAXBElement<GetNameResponse> createGetNameResponse(GetNameResponse value) {
+        return new JAXBElement<GetNameResponse>(_GetNameResponse_QNAME, GetNameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link IsAdminResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "isAdminResponse")
+    public JAXBElement<IsAdminResponse> createIsAdminResponse(IsAdminResponse value) {
+        return new JAXBElement<IsAdminResponse>(_IsAdminResponse_QNAME, IsAdminResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetUsername }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setUsername")
+    public JAXBElement<SetUsername> createSetUsername(SetUsername value) {
+        return new JAXBElement<SetUsername>(_SetUsername_QNAME, SetUsername.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetUsernameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setUsernameResponse")
+    public JAXBElement<SetUsernameResponse> createSetUsernameResponse(SetUsernameResponse value) {
+        return new JAXBElement<SetUsernameResponse>(_SetUsernameResponse_QNAME, SetUsernameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetName }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getName")
+    public JAXBElement<GetName> createGetName(GetName value) {
+        return new JAXBElement<GetName>(_GetName_QNAME, GetName.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetName }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setName")
+    public JAXBElement<SetName> createSetName(SetName value) {
+        return new JAXBElement<SetName>(_SetName_QNAME, SetName.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetNameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setNameResponse")
+    public JAXBElement<SetNameResponse> createSetNameResponse(SetNameResponse value) {
+        return new JAXBElement<SetNameResponse>(_SetNameResponse_QNAME, SetNameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetPassword }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setPassword")
+    public JAXBElement<SetPassword> createSetPassword(SetPassword value) {
+        return new JAXBElement<SetPassword>(_SetPassword_QNAME, SetPassword.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetSurname }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getSurname")
+    public JAXBElement<GetSurname> createGetSurname(GetSurname value) {
+        return new JAXBElement<GetSurname>(_GetSurname_QNAME, GetSurname.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetAdmin }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setAdmin")
+    public JAXBElement<SetAdmin> createSetAdmin(SetAdmin value) {
+        return new JAXBElement<SetAdmin>(_SetAdmin_QNAME, SetAdmin.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetSurnameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getSurnameResponse")
+    public JAXBElement<GetSurnameResponse> createGetSurnameResponse(GetSurnameResponse value) {
+        return new JAXBElement<GetSurnameResponse>(_GetSurnameResponse_QNAME, GetSurnameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPasswordResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getPasswordResponse")
+    public JAXBElement<GetPasswordResponse> createGetPasswordResponse(GetPasswordResponse value) {
+        return new JAXBElement<GetPasswordResponse>(_GetPasswordResponse_QNAME, GetPasswordResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetPasswordResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setPasswordResponse")
+    public JAXBElement<SetPasswordResponse> createSetPasswordResponse(SetPasswordResponse value) {
+        return new JAXBElement<SetPasswordResponse>(_SetPasswordResponse_QNAME, SetPasswordResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EqualsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "equalsResponse")
+    public JAXBElement<EqualsResponse> createEqualsResponse(EqualsResponse value) {
+        return new JAXBElement<EqualsResponse>(_EqualsResponse_QNAME, EqualsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetAdminResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setAdminResponse")
+    public JAXBElement<SetAdminResponse> createSetAdminResponse(SetAdminResponse value) {
+        return new JAXBElement<SetAdminResponse>(_SetAdminResponse_QNAME, SetAdminResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Equals }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "equals")
+    public JAXBElement<Equals> createEquals(Equals value) {
+        return new JAXBElement<Equals>(_Equals_QNAME, Equals.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetSurname }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setSurname")
+    public JAXBElement<SetSurname> createSetSurname(SetSurname value) {
+        return new JAXBElement<SetSurname>(_SetSurname_QNAME, SetSurname.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPassword }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getPassword")
+    public JAXBElement<GetPassword> createGetPassword(GetPassword value) {
+        return new JAXBElement<GetPassword>(_GetPassword_QNAME, GetPassword.class, null, value);
     }
 
 }
