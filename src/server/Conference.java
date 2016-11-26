@@ -14,14 +14,23 @@ public class Conference {
 	public W3CEndpointReference register(String username, String password, String name, String surname,
 			String idPaper) {
 		User user = null;
-		if (username.equals("admin") && password.equals("admin")) {
+
+		if (username.equals("admin") && password.equals("admin"))
 			user = new Admin(username, password, name, surname);
+		else {
+			user = new Participant(username, password, name, surname, idPaper);
+
+			// La users.indexOf(user) funziona grazie all'override del metodo
+			// equals nella classe Participant. In sostanza, la indexOf non
+			// sfrutta più il metodo equals implementato in Object ma quello
+			// implementato in Participant.
 			if (users.indexOf(user) == -1) {
 				users.add(user);
-				System.out.println("Utente aggiunto alla lista");
+				System.out.println("Utente " + username + " aggiunto alla lista partecipanti.");
 			} else
-				System.out.println("Utente trovato. Utenti presenti in lista: " + users.size());
+				System.out.println("Utente " + username + " risulta già iscritto alla conferenza.");
 		}
+
 		return User.manager.export(user);
 	}
 

@@ -1,6 +1,6 @@
 package server;
 
-public class Participant extends User implements Comparable<User> {
+public class Participant extends User {
 
 	private String idPaper;
 
@@ -11,23 +11,6 @@ public class Participant extends User implements Comparable<User> {
 
 	public String getIdPaper() {
 		return idPaper;
-	}
-
-	@Override
-	public int compareTo(User user) {
-		// Se lo user ha lo stesso username, allora sono uguali
-		if (getUsername().equals(user.getUsername()))
-			return 0;
-
-		// Se lo user non è un admin, dunque è un Participant che possiede un
-		// idPaper, e l'idPaper è uguale, allora sono uguali
-		if (!user.isAdmin()) {
-			Participant participant = (Participant) user;
-			if (idPaper.equals(participant.getIdPaper()))
-				return 0;
-		}
-
-		return getUsername().compareTo(user.getUsername());
 	}
 
 	@Override
