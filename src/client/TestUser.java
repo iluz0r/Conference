@@ -19,13 +19,13 @@ public class TestUser {
 		try {
 			ref = conference.login("admin", "admin");
 			admin = adminService.getPort(ref, Admin.class);
-			System.out.println("Logged in as: " + admin.getUsername());
+			System.out.println("Logged in as " + admin.getUsername());
 		} catch (RuntimeException e) {
 			System.err.println(e.getMessage());
 		}
 
 		try {
-			conference.register("cyberguitar23de", "vespone", "Vincenzo", "Giordano", "Scottexde");
+			conference.register("cyberguitar", "vespone", "Vincenzo", "Giordano", "Scottex");
 		} catch (RuntimeException e) {
 			System.err.println(e.getMessage());
 		}
@@ -33,7 +33,7 @@ public class TestUser {
 		Participant user2 = null;
 		W3CEndpointReference ref2 = null;
 		try {
-			ref2 = conference.login("cyberguitar23de", "vespone");
+			ref2 = conference.login("cyberguitar", "vespone");
 			user2 = participantService.getPort(ref2, Participant.class);
 			System.out.println("User " + user2.getUsername() + " with id paper " + user2.getIdPaper() + " logged in.");
 		} catch (RuntimeException e) {
@@ -41,7 +41,7 @@ public class TestUser {
 		}
 
 		try {
-			List<String> idPaperList = conference.getIdPapers(ref);
+			List<String> idPaperList = conference.getAllIdPapers(ref);
 			System.out.println("\nPapers list:");
 			for (String idPaper : idPaperList) 
 				System.out.println("- " + idPaper);
@@ -50,7 +50,7 @@ public class TestUser {
 		}
 		
 		try {
-			List<ParticipantBean> participantList = conference.getAllParticipants(ref2);
+			List<ParticipantBean> participantList = conference.getAllParticipants(ref);
 			System.out.println("\nUsers list:");
 			for (ParticipantBean participant : participantList) 
 				System.out.println("- " + participant.getUsername());

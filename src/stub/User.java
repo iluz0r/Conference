@@ -104,10 +104,10 @@ public interface User {
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "setPassword", targetNamespace = "http://server/", className = "stub.SetPassword")
-    @ResponseWrapper(localName = "setPasswordResponse", targetNamespace = "http://server/", className = "stub.SetPasswordResponse")
-    @Action(input = "http://server/User/setPasswordRequest", output = "http://server/User/setPasswordResponse")
-    public void setPassword(
+    @RequestWrapper(localName = "setUsername", targetNamespace = "http://server/", className = "stub.SetUsername")
+    @ResponseWrapper(localName = "setUsernameResponse", targetNamespace = "http://server/", className = "stub.SetUsernameResponse")
+    @Action(input = "http://server/User/setUsernameRequest", output = "http://server/User/setUsernameResponse")
+    public void setUsername(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
 
@@ -116,10 +116,10 @@ public interface User {
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "setUsername", targetNamespace = "http://server/", className = "stub.SetUsername")
-    @ResponseWrapper(localName = "setUsernameResponse", targetNamespace = "http://server/", className = "stub.SetUsernameResponse")
-    @Action(input = "http://server/User/setUsernameRequest", output = "http://server/User/setUsernameResponse")
-    public void setUsername(
+    @RequestWrapper(localName = "setPassword", targetNamespace = "http://server/", className = "stub.SetPassword")
+    @ResponseWrapper(localName = "setPasswordResponse", targetNamespace = "http://server/", className = "stub.SetPasswordResponse")
+    @Action(input = "http://server/User/setPasswordRequest", output = "http://server/User/setPasswordResponse")
+    public void setPassword(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
 

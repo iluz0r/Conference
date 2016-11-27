@@ -72,6 +72,21 @@ public interface Conference {
      * 
      * @param arg0
      * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAllIdPapers", targetNamespace = "http://server/", className = "stub.GetAllIdPapers")
+    @ResponseWrapper(localName = "getAllIdPapersResponse", targetNamespace = "http://server/", className = "stub.GetAllIdPapersResponse")
+    @Action(input = "http://server/Conference/getAllIdPapersRequest", output = "http://server/Conference/getAllIdPapersResponse")
+    public List<String> getAllIdPapers(
+        @WebParam(name = "arg0", targetNamespace = "")
+        W3CEndpointReference arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns java.util.List<stub.ParticipantBean>
      */
     @WebMethod
@@ -80,21 +95,6 @@ public interface Conference {
     @ResponseWrapper(localName = "getAllParticipantsResponse", targetNamespace = "http://server/", className = "stub.GetAllParticipantsResponse")
     @Action(input = "http://server/Conference/getAllParticipantsRequest", output = "http://server/Conference/getAllParticipantsResponse")
     public List<ParticipantBean> getAllParticipants(
-        @WebParam(name = "arg0", targetNamespace = "")
-        W3CEndpointReference arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getIdPapers", targetNamespace = "http://server/", className = "stub.GetIdPapers")
-    @ResponseWrapper(localName = "getIdPapersResponse", targetNamespace = "http://server/", className = "stub.GetIdPapersResponse")
-    @Action(input = "http://server/Conference/getIdPapersRequest", output = "http://server/Conference/getIdPapersResponse")
-    public List<String> getIdPapers(
         @WebParam(name = "arg0", targetNamespace = "")
         W3CEndpointReference arg0);
 

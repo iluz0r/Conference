@@ -8,12 +8,12 @@ import javax.xml.ws.wsaddressing.W3CEndpointReference;
 
 
 /**
- * <p>Classe Java per getIdPapers complex type.
+ * <p>Classe Java per getAllIdPapers complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
  * 
  * <pre>
- * &lt;complexType name="getIdPapers">
+ * &lt;complexType name="getAllIdPapers">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -27,10 +27,10 @@ import javax.xml.ws.wsaddressing.W3CEndpointReference;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getIdPapers", propOrder = {
+@XmlType(name = "getAllIdPapers", propOrder = {
     "arg0"
 })
-public class GetIdPapers {
+public class GetAllIdPapers {
 
     protected W3CEndpointReference arg0;
 

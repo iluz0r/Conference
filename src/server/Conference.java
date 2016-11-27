@@ -43,7 +43,7 @@ public class Conference {
 		throw new RuntimeException("User not registered.");
 	}
 
-	public List<String> getIdPapers(W3CEndpointReference ref) {
+	public List<String> getAllIdPapers(W3CEndpointReference ref) {
 		Admin user = Admin.manager.resolve(ref);
 		if (user != null) {
 			List<String> idPaperList = new ArrayList<>();
@@ -52,7 +52,6 @@ public class Conference {
 				if (!u.isAdmin())
 					idPaperList.add(((Participant) u).getIdPaper());
 			}
-
 			return idPaperList;
 		} else
 			throw new RuntimeException("Only admins can request the id papers list.");
@@ -76,7 +75,6 @@ public class Conference {
 					participantList.add(pb);
 				}
 			}
-
 			return participantList;
 		} else
 			throw new RuntimeException("Only admins can request the participants list.");
