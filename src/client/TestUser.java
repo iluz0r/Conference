@@ -41,7 +41,7 @@ public class TestUser {
 		}
 
 		try {
-			List<String> idPaperList = conference.getIdPapers(ref2);
+			List<String> idPaperList = conference.getIdPapers(ref);
 			System.out.println("\nPapers list:");
 			for (String idPaper : idPaperList) 
 				System.out.println("- " + idPaper);
@@ -50,7 +50,7 @@ public class TestUser {
 		}
 		
 		try {
-			List<ParticipantBean> participantList = conference.getAllParticipants(ref);
+			List<ParticipantBean> participantList = conference.getAllParticipants(ref2);
 			System.out.println("\nUsers list:");
 			for (ParticipantBean participant : participantList) 
 				System.out.println("- " + participant.getUsername());

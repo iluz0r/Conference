@@ -89,30 +89,6 @@ public interface Admin {
 
     /**
      * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "setSurname", targetNamespace = "http://server/", className = "stub.SetSurname")
-    @ResponseWrapper(localName = "setSurnameResponse", targetNamespace = "http://server/", className = "stub.SetSurnameResponse")
-    @Action(input = "http://server/Admin/setSurnameRequest", output = "http://server/Admin/setSurnameResponse")
-    public void setSurname(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "setAdmin", targetNamespace = "http://server/", className = "stub.SetAdmin")
-    @ResponseWrapper(localName = "setAdminResponse", targetNamespace = "http://server/", className = "stub.SetAdminResponse")
-    @Action(input = "http://server/Admin/setAdminRequest", output = "http://server/Admin/setAdminResponse")
-    public void setAdmin(
-        @WebParam(name = "arg0", targetNamespace = "")
-        boolean arg0);
-
-    /**
-     * 
      * @return
      *     returns java.lang.String
      */
@@ -158,5 +134,29 @@ public interface Admin {
     @ResponseWrapper(localName = "isAdminResponse", targetNamespace = "http://server/", className = "stub.IsAdminResponse")
     @Action(input = "http://server/Admin/isAdminRequest", output = "http://server/Admin/isAdminResponse")
     public boolean isAdmin();
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "setAdmin", targetNamespace = "http://server/", className = "stub.SetAdmin")
+    @ResponseWrapper(localName = "setAdminResponse", targetNamespace = "http://server/", className = "stub.SetAdminResponse")
+    @Action(input = "http://server/Admin/setAdminRequest", output = "http://server/Admin/setAdminResponse")
+    public void setAdmin(
+        @WebParam(name = "arg0", targetNamespace = "")
+        boolean arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "setSurname", targetNamespace = "http://server/", className = "stub.SetSurname")
+    @ResponseWrapper(localName = "setSurnameResponse", targetNamespace = "http://server/", className = "stub.SetSurnameResponse")
+    @Action(input = "http://server/Admin/setSurnameRequest", output = "http://server/Admin/setSurnameResponse")
+    public void setSurname(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
 
 }

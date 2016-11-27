@@ -10,6 +10,4 @@
 		url-pattern="/admin" />
 	<endpoint name="Participant" implementation="server.Participant"
 		url-pattern="/participant" />
-	<endpoint name="ParticipantBean" implementation="server.ParticipantBean"
-		url-pattern="/participant" />
 </endpoints>
