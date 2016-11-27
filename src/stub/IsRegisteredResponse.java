@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "isRegisteredResponse", namespace = "http://server/", propOrder = {
+@XmlType(name = "isRegisteredResponse", propOrder = {
     "_return"
 })
 public class IsRegisteredResponse {

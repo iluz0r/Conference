@@ -1,5 +1,8 @@
 package client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.ws.wsaddressing.W3CEndpointReference;
 
 import stub.Conference;
@@ -17,9 +20,13 @@ public class TestUser {
 		ParticipantService participantService = new ParticipantService();
 		AdminService adminService = new AdminService();
 
-		W3CEndpointReference ref = conference.login("admin", "admin");
-		Admin admin = adminService.getPort(ref, Admin.class);
-		System.out.println("Logged in as: " + admin.getUsername());
+		try {
+			W3CEndpointReference ref = conference.login("admin", "admin");
+			Admin admin = adminService.getPort(ref, Admin.class);
+			System.out.println("Logged in as: " + admin.getUsername());
+		} catch (RuntimeException e) {
+			System.err.println(e.getMessage());
+		}
 
 		try {
 			conference.register("cyberguitar", "vespone", "Vincenzo", "Giordano", "Scottex");
@@ -28,11 +35,17 @@ public class TestUser {
 		}
 
 		try {
-			W3CEndpointReference ref2 = conference.login("cyberguitar", "vespon3");
+			W3CEndpointReference ref2 = conference.login("cyberguitar", "vespone");
 			Participant user2 = participantService.getPort(ref2, Participant.class);
 			System.out.println("User " + user2.getUsername() + " with id paper " + user2.getIdPaper() + " logged in.");
 		} catch (RuntimeException e) {
 			System.err.println(e.getMessage());
+		}
+		
+		List<String> idPaperList = conference.getIdPapers();
+		System.out.println("\nPapers list:\n");
+		for(String idPaper : idPaperList) {
+			System.out.println(idPaper);
 		}
 	}
 

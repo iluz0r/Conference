@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "register", namespace = "http://server/", propOrder = {
+@XmlType(name = "register", propOrder = {
     "arg0",
     "arg1",
     "arg2",

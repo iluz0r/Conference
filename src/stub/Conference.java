@@ -1,6 +1,7 @@
 
 package stub;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -84,5 +85,17 @@ public interface Conference {
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getIdPapers", targetNamespace = "http://server/", className = "stub.GetIdPapers")
+    @ResponseWrapper(localName = "getIdPapersResponse", targetNamespace = "http://server/", className = "stub.GetIdPapersResponse")
+    @Action(input = "http://server/Conference/getIdPapersRequest", output = "http://server/Conference/getIdPapersResponse")
+    public List<String> getIdPapers();
 
 }

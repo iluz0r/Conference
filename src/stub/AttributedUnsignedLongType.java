@@ -31,7 +31,7 @@ import javax.xml.namespace.QName;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AttributedUnsignedLongType", propOrder = {
+@XmlType(name = "AttributedUnsignedLongType", namespace = "http://www.w3.org/2005/08/addressing", propOrder = {
     "value"
 })
 public class AttributedUnsignedLongType {

@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per registerResponse complex type.
+ * <p>Classe Java per getIdPapers complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
  * 
  * <pre>
- * &lt;complexType name="registerResponse">
+ * &lt;complexType name="getIdPapers">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "registerResponse")
-public class RegisterResponse {
+@XmlType(name = "getIdPapers")
+public class GetIdPapers {
 
 
 }

@@ -54,4 +54,15 @@ public class Conference {
 		return false;
 	}
 
+	public List<String> getIdPapers() {
+		List<String> idPaperList = new ArrayList<>();
+
+		for (User u : users) {
+			if (!u.isAdmin())
+				idPaperList.add(((Participant) u).getIdPaper());
+		}
+
+		return idPaperList;
+	}
+
 }
