@@ -22,14 +22,18 @@ public class TestUser {
 		System.out.println("Logged in as: " + admin.getUsername());
 
 		try {
-			conference.register("cyberguitar", "sergio90", "Vincenzo", "Giordano", "Scottex");
+			conference.register("cyberguitar", "vespone", "Vincenzo", "Giordano", "Scottex");
 		} catch (RuntimeException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
-		
-		W3CEndpointReference ref2 = conference.login("cyberguitar", "sergio90");
-		Participant user2 = participantService.getPort(ref2, Participant.class);
-		System.out.println("User " + user2.getUsername() + " with id paper " + user2.getIdPaper() + " logged in.");
+
+		try {
+			W3CEndpointReference ref2 = conference.login("cyberguitar", "vespon3");
+			Participant user2 = participantService.getPort(ref2, Participant.class);
+			System.out.println("User " + user2.getUsername() + " with id paper " + user2.getIdPaper() + " logged in.");
+		} catch (RuntimeException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 
 }

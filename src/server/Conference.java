@@ -22,19 +22,22 @@ public class Conference {
 		// equals nella classe Participant. In sostanza, la indexOf non
 		// sfrutta più il metodo equals implementato in Object ma quello
 		// implementato in Participant.
-		if (users.indexOf(p) == -1) 
+		if (users.indexOf(p) == -1)
 			users.add(p);
 		else
-			throw new RuntimeException("Already registered user.");
+			throw new RuntimeException("Already registered user/id paper.");
 	}
 
 	public W3CEndpointReference login(String username, String password) {
 		for (User u : users) {
-			if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
-				if(u.isAdmin())
-					return Admin.manager.export((Admin) u);
-				else
-					return Participant.manager.export((Participant) u);
+			if (u.getUsername().equals(username)) {
+				if (u.getPassword().equals(password)) {
+					if (u.isAdmin())
+						return Admin.manager.export((Admin) u);
+					else
+						return Participant.manager.export((Participant) u);
+				} else
+					throw new RuntimeException("Wrong password.");
 			}
 		}
 		throw new RuntimeException("User not registered.");
