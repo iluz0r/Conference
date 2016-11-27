@@ -89,6 +89,30 @@ public interface Participant {
 
     /**
      * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getSurname", targetNamespace = "http://server/", className = "stub.GetSurname")
+    @ResponseWrapper(localName = "getSurnameResponse", targetNamespace = "http://server/", className = "stub.GetSurnameResponse")
+    @Action(input = "http://server/Participant/getSurnameRequest", output = "http://server/Participant/getSurnameResponse")
+    public String getSurname();
+
+    /**
+     * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getPassword", targetNamespace = "http://server/", className = "stub.GetPassword")
+    @ResponseWrapper(localName = "getPasswordResponse", targetNamespace = "http://server/", className = "stub.GetPasswordResponse")
+    @Action(input = "http://server/Participant/getPasswordRequest", output = "http://server/Participant/getPasswordResponse")
+    public String getPassword();
+
+    /**
+     * 
      * @param arg0
      */
     @WebMethod
@@ -110,30 +134,6 @@ public interface Participant {
     public void setUsername(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getPassword", targetNamespace = "http://server/", className = "stub.GetPassword")
-    @ResponseWrapper(localName = "getPasswordResponse", targetNamespace = "http://server/", className = "stub.GetPasswordResponse")
-    @Action(input = "http://server/Participant/getPasswordRequest", output = "http://server/Participant/getPasswordResponse")
-    public String getPassword();
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getSurname", targetNamespace = "http://server/", className = "stub.GetSurname")
-    @ResponseWrapper(localName = "getSurnameResponse", targetNamespace = "http://server/", className = "stub.GetSurnameResponse")
-    @Action(input = "http://server/Participant/getSurnameRequest", output = "http://server/Participant/getSurnameResponse")
-    public String getSurname();
 
     /**
      * 

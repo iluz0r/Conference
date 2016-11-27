@@ -32,15 +32,12 @@ public interface Conference {
      * @param arg4
      * @param arg1
      * @param arg0
-     * @return
-     *     returns javax.xml.ws.wsaddressing.W3CEndpointReference
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "register", targetNamespace = "http://server/", className = "stub.Register")
     @ResponseWrapper(localName = "registerResponse", targetNamespace = "http://server/", className = "stub.RegisterResponse")
     @Action(input = "http://server/Conference/registerRequest", output = "http://server/Conference/registerResponse")
-    public W3CEndpointReference register(
+    public void register(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
@@ -51,5 +48,41 @@ public interface Conference {
         String arg3,
         @WebParam(name = "arg4", targetNamespace = "")
         String arg4);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "isRegistered", targetNamespace = "http://server/", className = "stub.IsRegistered")
+    @ResponseWrapper(localName = "isRegisteredResponse", targetNamespace = "http://server/", className = "stub.IsRegisteredResponse")
+    @Action(input = "http://server/Conference/isRegisteredRequest", output = "http://server/Conference/isRegisteredResponse")
+    public boolean isRegistered(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns javax.xml.ws.wsaddressing.W3CEndpointReference
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "login", targetNamespace = "http://server/", className = "stub.Login")
+    @ResponseWrapper(localName = "loginResponse", targetNamespace = "http://server/", className = "stub.LoginResponse")
+    @Action(input = "http://server/Conference/loginRequest", output = "http://server/Conference/loginResponse")
+    public W3CEndpointReference login(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
 
 }
