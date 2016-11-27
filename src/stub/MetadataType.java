@@ -35,7 +35,7 @@ import org.w3c.dom.Element;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MetadataType", namespace = "http://www.w3.org/2005/08/addressing", propOrder = {
+@XmlType(name = "MetadataType", propOrder = {
     "any"
 })
 public class MetadataType {
@@ -63,8 +63,8 @@ public class MetadataType {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Element }
      * {@link Object }
+     * {@link Element }
      * 
      * 
      */

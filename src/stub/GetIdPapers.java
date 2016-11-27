@@ -27,7 +27,7 @@ import javax.xml.ws.wsaddressing.W3CEndpointReference;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getIdPapers", propOrder = {
+@XmlType(name = "getIdPapers", namespace = "http://server/", propOrder = {
     "arg0"
 })
 public class GetIdPapers {

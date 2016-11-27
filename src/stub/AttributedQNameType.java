@@ -29,7 +29,7 @@ import javax.xml.namespace.QName;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AttributedQNameType", namespace = "http://www.w3.org/2005/08/addressing", propOrder = {
+@XmlType(name = "AttributedQNameType", propOrder = {
     "value"
 })
 public class AttributedQNameType {

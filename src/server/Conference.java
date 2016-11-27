@@ -43,20 +43,9 @@ public class Conference {
 		throw new RuntimeException("User not registered.");
 	}
 
-	public boolean isRegistered(String username, String idPaper) {
-		for (User u : users) {
-			if (!u.isAdmin()) {
-				Participant p = (Participant) u;
-				if (p.getUsername().equals(username) || p.getIdPaper().equals(idPaper))
-					return true;
-			}
-		}
-		return false;
-	}
-
 	public List<String> getIdPapers(W3CEndpointReference ref) {
 		Admin user = Admin.manager.resolve(ref);
-		if (user!= null) {
+		if (user != null) {
 			List<String> idPaperList = new ArrayList<>();
 
 			for (User u : users) {

@@ -55,24 +55,6 @@ public interface Conference {
      * @param arg1
      * @param arg0
      * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "isRegistered", targetNamespace = "http://server/", className = "stub.IsRegistered")
-    @ResponseWrapper(localName = "isRegisteredResponse", targetNamespace = "http://server/", className = "stub.IsRegisteredResponse")
-    @Action(input = "http://server/Conference/isRegisteredRequest", output = "http://server/Conference/isRegisteredResponse")
-    public boolean isRegistered(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     * @return
      *     returns javax.xml.ws.wsaddressing.W3CEndpointReference
      */
     @WebMethod

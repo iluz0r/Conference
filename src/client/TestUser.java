@@ -47,10 +47,9 @@ public class TestUser {
 
 		try {
 			List<String> idPaperList = conference.getIdPapers(ref2);
-			System.out.println("\nPapers list:\n");
-			for (String idPaper : idPaperList) {
-				System.out.println(idPaper);
-			}
+			System.out.println("\nPapers list:");
+			for (String idPaper : idPaperList) 
+				System.out.println("- " + idPaper);
 		} catch (RuntimeException e) {
 			System.err.println(e.getMessage());
 		}

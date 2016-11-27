@@ -28,7 +28,7 @@ import javax.xml.ws.wsaddressing.W3CEndpointReference;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "loginResponse", propOrder = {
+@XmlType(name = "loginResponse", namespace = "http://server/", propOrder = {
     "_return"
 })
 public class LoginResponse {

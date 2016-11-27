@@ -35,7 +35,7 @@ import org.w3c.dom.Element;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ReferenceParametersType", namespace = "http://www.w3.org/2005/08/addressing", propOrder = {
+@XmlType(name = "ReferenceParametersType", propOrder = {
     "any"
 })
 public class ReferenceParametersType {
@@ -63,8 +63,8 @@ public class ReferenceParametersType {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Element }
      * {@link Object }
+     * {@link Element }
      * 
      * 
      */

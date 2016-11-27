@@ -34,7 +34,7 @@ import javax.xml.namespace.QName;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ProblemActionType", namespace = "http://www.w3.org/2005/08/addressing", propOrder = {
+@XmlType(name = "ProblemActionType", propOrder = {
     "action",
     "soapAction"
 })
