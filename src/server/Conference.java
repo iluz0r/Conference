@@ -57,5 +57,29 @@ public class Conference {
 		} else
 			throw new RuntimeException("Only admins can request the id papers list.");
 	}
+	
+	public List<ParticipantBean> getAllParticipants(W3CEndpointReference ref) {
+		Admin user = Admin.manager.resolve(ref);
+		if (user != null) {
+			List<ParticipantBean> participantList = new ArrayList<>();
+
+			for (User u : users) {
+				if (!u.isAdmin()) {
+					Participant p = (Participant) u;
+					ParticipantBean pb = new ParticipantBean();
+					pb.username = p.getUsername();
+					pb.password = p.getPassword();
+					pb.name = p.getName();
+					pb.surname = p.getSurname();
+					pb.idPaper = p.getIdPaper();
+					pb.isAdmin = p.isAdmin();
+					participantList.add(pb);
+				}
+			}
+
+			return participantList;
+		} else
+			throw new RuntimeException("Only admins can request the participants list.");
+	}
 
 }

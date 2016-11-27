@@ -30,7 +30,7 @@ import javax.xml.namespace.QName;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AttributedURIType", propOrder = {
+@XmlType(name = "AttributedURIType", namespace = "http://www.w3.org/2005/08/addressing", propOrder = {
     "value"
 })
 public class AttributedURIType {

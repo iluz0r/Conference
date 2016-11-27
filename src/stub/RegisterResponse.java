@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "registerResponse", namespace = "http://server/")
+@XmlType(name = "registerResponse")
 public class RegisterResponse {
 
 

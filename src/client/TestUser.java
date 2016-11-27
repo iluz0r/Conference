@@ -53,6 +53,15 @@ public class TestUser {
 		} catch (RuntimeException e) {
 			System.err.println(e.getMessage());
 		}
+		
+		try {
+			List<Participant> participantList = conference.getAllParticipants(ref);
+			System.out.println("\nUsers list:");
+			for (Participant participant : participantList) 
+				System.out.println("- " + participant.getUsername());
+		} catch (RuntimeException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 
 }

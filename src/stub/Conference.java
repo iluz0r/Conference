@@ -72,6 +72,21 @@ public interface Conference {
      * 
      * @param arg0
      * @return
+     *     returns java.util.List<stub.Participant>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAllParticipants", targetNamespace = "http://server/", className = "stub.GetAllParticipants")
+    @ResponseWrapper(localName = "getAllParticipantsResponse", targetNamespace = "http://server/", className = "stub.GetAllParticipantsResponse")
+    @Action(input = "http://server/Conference/getAllParticipantsRequest", output = "http://server/Conference/getAllParticipantsResponse")
+    public List<Participant> getAllParticipants(
+        @WebParam(name = "arg0", targetNamespace = "")
+        W3CEndpointReference arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns java.util.List<java.lang.String>
      */
     @WebMethod
