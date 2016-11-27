@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://server/}participant" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://server/}participantBean" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GetAllParticipantsResponse {
 
     @XmlElement(name = "return")
-    protected List<Participant> _return;
+    protected List<ParticipantBean> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class GetAllParticipantsResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Participant }
+     * {@link ParticipantBean }
      * 
      * 
      */
-    public List<Participant> getReturn() {
+    public List<ParticipantBean> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<Participant>();
+            _return = new ArrayList<ParticipantBean>();
         }
         return this._return;
     }

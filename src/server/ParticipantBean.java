@@ -1,5 +1,11 @@
 package server;
 
+import javax.jws.WebService;
+import javax.xml.bind.annotation.*;
+
+@WebService
+@XmlRootElement(name="yourRootElementName")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ParticipantBean {
 
 	public String username;

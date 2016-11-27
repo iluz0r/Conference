@@ -4,12 +4,7 @@ import java.util.List;
 
 import javax.xml.ws.wsaddressing.W3CEndpointReference;
 
-import stub.Admin;
-import stub.AdminService;
-import stub.Conference;
-import stub.ConferenceService;
-import stub.Participant;
-import stub.ParticipantService;
+import stub.*;
 
 public class TestUser {
 
@@ -30,7 +25,7 @@ public class TestUser {
 		}
 
 		try {
-			conference.register("cyberguitar", "vespone", "Vincenzo", "Giordano", "Scottex");
+			conference.register("cyberguitar23de", "vespone", "Vincenzo", "Giordano", "Scottexde");
 		} catch (RuntimeException e) {
 			System.err.println(e.getMessage());
 		}
@@ -38,7 +33,7 @@ public class TestUser {
 		Participant user2 = null;
 		W3CEndpointReference ref2 = null;
 		try {
-			ref2 = conference.login("cyberguitar", "vespone");
+			ref2 = conference.login("cyberguitar23de", "vespone");
 			user2 = participantService.getPort(ref2, Participant.class);
 			System.out.println("User " + user2.getUsername() + " with id paper " + user2.getIdPaper() + " logged in.");
 		} catch (RuntimeException e) {
@@ -55,9 +50,9 @@ public class TestUser {
 		}
 		
 		try {
-			List<Participant> participantList = conference.getAllParticipants(ref);
+			List<ParticipantBean> participantList = conference.getAllParticipants(ref);
 			System.out.println("\nUsers list:");
-			for (Participant participant : participantList) 
+			for (ParticipantBean participant : participantList) 
 				System.out.println("- " + participant.getUsername());
 		} catch (RuntimeException e) {
 			System.err.println(e.getMessage());
