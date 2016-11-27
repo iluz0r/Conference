@@ -88,6 +88,7 @@ public interface Conference {
 
     /**
      * 
+     * @param arg0
      * @return
      *     returns java.util.List<java.lang.String>
      */
@@ -96,6 +97,8 @@ public interface Conference {
     @RequestWrapper(localName = "getIdPapers", targetNamespace = "http://server/", className = "stub.GetIdPapers")
     @ResponseWrapper(localName = "getIdPapersResponse", targetNamespace = "http://server/", className = "stub.GetIdPapersResponse")
     @Action(input = "http://server/Conference/getIdPapersRequest", output = "http://server/Conference/getIdPapersResponse")
-    public List<String> getIdPapers();
+    public List<String> getIdPapers(
+        @WebParam(name = "arg0", targetNamespace = "")
+        W3CEndpointReference arg0);
 
 }

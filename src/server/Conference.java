@@ -54,15 +54,19 @@ public class Conference {
 		return false;
 	}
 
-	public List<String> getIdPapers() {
-		List<String> idPaperList = new ArrayList<>();
+	public List<String> getIdPapers(W3CEndpointReference ref) {
+		Admin user = Admin.manager.resolve(ref);
+		if (user!= null) {
+			List<String> idPaperList = new ArrayList<>();
 
-		for (User u : users) {
-			if (!u.isAdmin())
-				idPaperList.add(((Participant) u).getIdPaper());
-		}
+			for (User u : users) {
+				if (!u.isAdmin())
+					idPaperList.add(((Participant) u).getIdPaper());
+			}
 
-		return idPaperList;
+			return idPaperList;
+		} else
+			throw new RuntimeException("Only admins can request the id papers list.");
 	}
 
 }

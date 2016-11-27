@@ -1,14 +1,13 @@
 package client;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.ws.wsaddressing.W3CEndpointReference;
 
-import stub.Conference;
-import stub.ConferenceService;
 import stub.Admin;
 import stub.AdminService;
+import stub.Conference;
+import stub.ConferenceService;
 import stub.Participant;
 import stub.ParticipantService;
 
@@ -20,9 +19,11 @@ public class TestUser {
 		ParticipantService participantService = new ParticipantService();
 		AdminService adminService = new AdminService();
 
+		Admin admin = null;
+		W3CEndpointReference ref = null;
 		try {
-			W3CEndpointReference ref = conference.login("admin", "admin");
-			Admin admin = adminService.getPort(ref, Admin.class);
+			ref = conference.login("admin", "admin");
+			admin = adminService.getPort(ref, Admin.class);
 			System.out.println("Logged in as: " + admin.getUsername());
 		} catch (RuntimeException e) {
 			System.err.println(e.getMessage());
@@ -34,18 +35,24 @@ public class TestUser {
 			System.err.println(e.getMessage());
 		}
 
+		Participant user2 = null;
+		W3CEndpointReference ref2 = null;
 		try {
-			W3CEndpointReference ref2 = conference.login("cyberguitar", "vespone");
-			Participant user2 = participantService.getPort(ref2, Participant.class);
+			ref2 = conference.login("cyberguitar", "vespone");
+			user2 = participantService.getPort(ref2, Participant.class);
 			System.out.println("User " + user2.getUsername() + " with id paper " + user2.getIdPaper() + " logged in.");
 		} catch (RuntimeException e) {
 			System.err.println(e.getMessage());
 		}
-		
-		List<String> idPaperList = conference.getIdPapers();
-		System.out.println("\nPapers list:\n");
-		for(String idPaper : idPaperList) {
-			System.out.println(idPaper);
+
+		try {
+			List<String> idPaperList = conference.getIdPapers(ref2);
+			System.out.println("\nPapers list:\n");
+			for (String idPaper : idPaperList) {
+				System.out.println(idPaper);
+			}
+		} catch (RuntimeException e) {
+			System.err.println(e.getMessage());
 		}
 	}
 
