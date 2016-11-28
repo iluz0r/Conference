@@ -45,6 +45,11 @@ public class ClientGUI {
 	private JButton getAllPaperButton;	
 	private JButton getAllParticipantsButton;
 	private JPanel operationPanel;
+	private JPanel loginPanel;
+	private JTabbedPane tabbedPane;
+	private JPanel registerPanel;
+	private JLabel usernameLabel;
+	private JLabel passwordLabel;
 	private ConferenceService conferenceService;
 	private Conference conference;
 	private ParticipantService participantService;
@@ -86,10 +91,10 @@ public class ClientGUI {
 		frmClientGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmClientGui.getContentPane().setLayout(new MigLayout("", "[grow]", "[grow][grow]"));
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frmClientGui.getContentPane().add(tabbedPane, "cell 0 0 1 2,grow");
 		
-		JPanel loginPanel = new JPanel();
+		loginPanel = new JPanel();
 		tabbedPane.addTab("Login", null, loginPanel, null);
 		loginPanel.setBorder(new TitledBorder(null, "Login", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		
@@ -112,16 +117,16 @@ public class ClientGUI {
 		loginPanel.add(passwordLoginTextField, "cell 4 0,growx");
 		loginPanel.add(loginButton, "cell 0 1 5 1,growx");
 		
-		JPanel registerPanel = new JPanel();
+		registerPanel = new JPanel();
 		tabbedPane.addTab("Register", null, registerPanel, null);
 		registerPanel.setBorder(new TitledBorder(null, "Register", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		
-		JLabel usernameLabel = new JLabel("Username:");
+		usernameLabel = new JLabel("Username:");
 		
 		usernameTextField = new JTextField();
 		usernameTextField.setColumns(10);
 		
-		JLabel passwordLabel = new JLabel("Password:");
+		passwordLabel = new JLabel("Password:");
 		
 		passwordTextField = new JPasswordField();
 		passwordTextField.setColumns(10);
@@ -170,7 +175,7 @@ public class ClientGUI {
 		operationPanel.add(getAllPaperButton, "cell 0 1,growx");
 		
 		getAllParticipantsButton = new JButton("Get all participants");
-		getAllParticipantsButton.addActionListener(new AllParticipantsButtonListener());
+		getAllParticipantsButton.addActionListener(new AllParticipantButtonListener());
 		operationPanel.add(getAllParticipantsButton, "cell 0 2,growx");
 		
 		conferenceService = new ConferenceService();
@@ -249,7 +254,7 @@ public class ClientGUI {
 		
 	}
 	
-	private class AllParticipantsButtonListener implements ActionListener {
+	private class AllParticipantButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
