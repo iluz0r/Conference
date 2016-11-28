@@ -41,7 +41,7 @@ public class TestUser {
 		}
 
 		try {
-			List<String> idPaperList = conference.getAllIdPapers(ref);
+			List<String> idPaperList = conference.getAllIdPapers(ref2);
 			System.out.println("\nPapers list:");
 			for (String idPaper : idPaperList) 
 				System.out.println("- " + idPaper);
