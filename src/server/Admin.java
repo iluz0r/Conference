@@ -12,7 +12,7 @@ import com.sun.xml.ws.developer.StatefulWebServiceManager;
 public class Admin extends User {
 
 	public static StatefulWebServiceManager<Admin> manager;
-	
+
 	public Admin(String username, String password, String name, String surname) {
 		super(username, password, name, surname, true);
 	}

@@ -16,7 +16,7 @@ public class Conference {
 		users.add(new Admin("admin", "admin", "Sigismondo", "Malatesta"));
 	}
 
-	public void register(String username, String password, String name, String surname, String idPaper) {
+	public synchronized void register(String username, String password, String name, String surname, String idPaper) {
 		Participant p = new Participant(username, password, name, surname, idPaper);
 		// La users.indexOf(user) funziona grazie all'override del metodo
 		// equals nella classe Participant. In sostanza, la indexOf non
@@ -28,7 +28,7 @@ public class Conference {
 			throw new RuntimeException("Already registered user/id paper.");
 	}
 
-	public W3CEndpointReference login(String username, String password) {
+	public synchronized W3CEndpointReference login(String username, String password) {
 		for (User u : users) {
 			if (u.getUsername().equals(username)) {
 				if (u.getPassword().equals(password)) {
@@ -43,7 +43,7 @@ public class Conference {
 		throw new RuntimeException("User not registered.");
 	}
 
-	public List<String> getAllIdPapers(W3CEndpointReference ref) {
+	public synchronized List<String> getAllIdPapers(W3CEndpointReference ref) {
 		Admin user = Admin.manager.resolve(ref);
 		if (user != null) {
 			List<String> idPaperList = new ArrayList<>();
@@ -57,7 +57,7 @@ public class Conference {
 			throw new RuntimeException("Only admins can request the id papers list.");
 	}
 	
-	public List<ParticipantBean> getAllParticipants(W3CEndpointReference ref) {
+	public synchronized List<ParticipantBean> getAllParticipants(W3CEndpointReference ref) {
 		Admin user = Admin.manager.resolve(ref);
 		if (user != null) {
 			List<ParticipantBean> participantList = new ArrayList<>();

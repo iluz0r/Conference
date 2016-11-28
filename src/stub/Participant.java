@@ -101,15 +101,15 @@ public interface Participant {
 
     /**
      * 
-     * @return
-     *     returns java.lang.String
+     * @param arg0
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getPassword", targetNamespace = "http://server/", className = "stub.GetPassword")
-    @ResponseWrapper(localName = "getPasswordResponse", targetNamespace = "http://server/", className = "stub.GetPasswordResponse")
-    @Action(input = "http://server/Participant/getPasswordRequest", output = "http://server/Participant/getPasswordResponse")
-    public String getPassword();
+    @RequestWrapper(localName = "setPassword", targetNamespace = "http://server/", className = "stub.SetPassword")
+    @ResponseWrapper(localName = "setPasswordResponse", targetNamespace = "http://server/", className = "stub.SetPasswordResponse")
+    @Action(input = "http://server/Participant/setPasswordRequest", output = "http://server/Participant/setPasswordResponse")
+    public void setPassword(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
 
     /**
      * 
@@ -125,15 +125,15 @@ public interface Participant {
 
     /**
      * 
-     * @param arg0
+     * @return
+     *     returns java.lang.String
      */
     @WebMethod
-    @RequestWrapper(localName = "setPassword", targetNamespace = "http://server/", className = "stub.SetPassword")
-    @ResponseWrapper(localName = "setPasswordResponse", targetNamespace = "http://server/", className = "stub.SetPasswordResponse")
-    @Action(input = "http://server/Participant/setPasswordRequest", output = "http://server/Participant/setPasswordResponse")
-    public void setPassword(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getPassword", targetNamespace = "http://server/", className = "stub.GetPassword")
+    @ResponseWrapper(localName = "getPasswordResponse", targetNamespace = "http://server/", className = "stub.GetPasswordResponse")
+    @Action(input = "http://server/Participant/getPasswordRequest", output = "http://server/Participant/getPasswordResponse")
+    public String getPassword();
 
     /**
      * 

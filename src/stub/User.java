@@ -89,15 +89,15 @@ public interface User {
 
     /**
      * 
-     * @return
-     *     returns java.lang.String
+     * @param arg0
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getPassword", targetNamespace = "http://server/", className = "stub.GetPassword")
-    @ResponseWrapper(localName = "getPasswordResponse", targetNamespace = "http://server/", className = "stub.GetPasswordResponse")
-    @Action(input = "http://server/User/getPasswordRequest", output = "http://server/User/getPasswordResponse")
-    public String getPassword();
+    @RequestWrapper(localName = "setPassword", targetNamespace = "http://server/", className = "stub.SetPassword")
+    @ResponseWrapper(localName = "setPasswordResponse", targetNamespace = "http://server/", className = "stub.SetPasswordResponse")
+    @Action(input = "http://server/User/setPasswordRequest", output = "http://server/User/setPasswordResponse")
+    public void setPassword(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
 
     /**
      * 
@@ -113,15 +113,15 @@ public interface User {
 
     /**
      * 
-     * @param arg0
+     * @return
+     *     returns java.lang.String
      */
     @WebMethod
-    @RequestWrapper(localName = "setPassword", targetNamespace = "http://server/", className = "stub.SetPassword")
-    @ResponseWrapper(localName = "setPasswordResponse", targetNamespace = "http://server/", className = "stub.SetPasswordResponse")
-    @Action(input = "http://server/User/setPasswordRequest", output = "http://server/User/setPasswordResponse")
-    public void setPassword(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getPassword", targetNamespace = "http://server/", className = "stub.GetPassword")
+    @ResponseWrapper(localName = "getPasswordResponse", targetNamespace = "http://server/", className = "stub.GetPasswordResponse")
+    @Action(input = "http://server/User/getPasswordRequest", output = "http://server/User/getPasswordResponse")
+    public String getPassword();
 
     /**
      * 
