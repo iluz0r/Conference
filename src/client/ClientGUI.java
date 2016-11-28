@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -176,7 +177,7 @@ public class ClientGUI {
 		getAllParticipantsButton = new JButton("Get all participants");
 		getAllParticipantsButton.addActionListener(new AllParticipantButtonListener());
 		operationPanel.add(getAllParticipantsButton, "cell 0 2,growx");
-		
+
 		tabbedPane.setEnabledAt(2, false);
 
 		try {
@@ -201,8 +202,6 @@ public class ClientGUI {
 				conference.register(username, password, name, surname, idPaper);
 				JOptionPane.showMessageDialog(frame, "Registration successful.", "Registration message",
 						JOptionPane.INFORMATION_MESSAGE);
-
-				tabbedPane.setSelectedIndex(0);
 			} catch (RuntimeException e) {
 				JOptionPane.showMessageDialog(frame, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			}
@@ -233,7 +232,7 @@ public class ClientGUI {
 						JOptionPane.showMessageDialog(frame, "Logged in as " + admin.getUsername(), "Login message",
 								JOptionPane.INFORMATION_MESSAGE);
 					}
-					
+
 					loginButton.setText("Logout");
 					usernameLoginTextField.setEnabled(false);
 					passwordLoginTextField.setEnabled(false);
@@ -274,9 +273,9 @@ public class ClientGUI {
 		public void actionPerformed(ActionEvent arg0) {
 			try {
 				List<String> idPaperList = conference.getAllIdPapers(ref);
-				System.out.println("\nPapers list:");
-				for (String idPaper : idPaperList)
-					System.out.println("- " + idPaper);
+				PaperListDialog dialog = new PaperListDialog(idPaperList);
+				dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+				dialog.setVisible(true);
 			} catch (RuntimeException e) {
 				JOptionPane.showMessageDialog(frame, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			}
@@ -290,9 +289,9 @@ public class ClientGUI {
 		public void actionPerformed(ActionEvent arg0) {
 			try {
 				List<ParticipantBean> participantList = conference.getAllParticipants(ref);
-				System.out.println("\nUsers list:");
-				for (ParticipantBean participant : participantList)
-					System.out.println("- " + participant.getUsername());
+				ParticipantListDialog dialog = new ParticipantListDialog(participantList);
+				dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+				dialog.setVisible(true);
 			} catch (RuntimeException e) {
 				JOptionPane.showMessageDialog(frame, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			}
