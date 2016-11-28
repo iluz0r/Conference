@@ -7,6 +7,7 @@ public class ParticipantBean {
 	public String name;
 	public String surname;
 	public String idPaper;
+	public String titlePaper;
 	public boolean isAdmin;
 
 }

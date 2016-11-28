@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per getAllIdPapersResponse complex type.
+ * <p>Classe Java per getAllPapersResponse complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
  * 
  * <pre>
- * &lt;complexType name="getAllIdPapersResponse">
+ * &lt;complexType name="getAllPapersResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://jaxb.dev.java.net/array}stringArray" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,13 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getAllIdPapersResponse", propOrder = {
+@XmlType(name = "getAllPapersResponse", propOrder = {
     "_return"
 })
-public class GetAllIdPapersResponse {
+public class GetAllPapersResponse {
 
     @XmlElement(name = "return")
-    protected List<String> _return;
+    protected List<StringArray> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class GetAllIdPapersResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link String }
+     * {@link StringArray }
      * 
      * 
      */
-    public List<String> getReturn() {
+    public List<StringArray> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<String>();
+            _return = new ArrayList<StringArray>();
         }
         return this._return;
     }

@@ -24,30 +24,32 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetIdPaper_QNAME = new QName("http://server/", "getIdPaper");
-    private final static QName _GetUsername_QNAME = new QName("http://server/", "getUsername");
     private final static QName _GetUsernameResponse_QNAME = new QName("http://server/", "getUsernameResponse");
-    private final static QName _GetIdPaperResponse_QNAME = new QName("http://server/", "getIdPaperResponse");
     private final static QName _IsAdmin_QNAME = new QName("http://server/", "isAdmin");
     private final static QName _SetSurnameResponse_QNAME = new QName("http://server/", "setSurnameResponse");
     private final static QName _GetNameResponse_QNAME = new QName("http://server/", "getNameResponse");
     private final static QName _IsAdminResponse_QNAME = new QName("http://server/", "isAdminResponse");
     private final static QName _SetUsername_QNAME = new QName("http://server/", "setUsername");
-    private final static QName _SetUsernameResponse_QNAME = new QName("http://server/", "setUsernameResponse");
-    private final static QName _GetName_QNAME = new QName("http://server/", "getName");
-    private final static QName _SetName_QNAME = new QName("http://server/", "setName");
     private final static QName _SetNameResponse_QNAME = new QName("http://server/", "setNameResponse");
-    private final static QName _SetPassword_QNAME = new QName("http://server/", "setPassword");
     private final static QName _GetSurname_QNAME = new QName("http://server/", "getSurname");
     private final static QName _SetAdmin_QNAME = new QName("http://server/", "setAdmin");
     private final static QName _GetSurnameResponse_QNAME = new QName("http://server/", "getSurnameResponse");
     private final static QName _GetPasswordResponse_QNAME = new QName("http://server/", "getPasswordResponse");
+    private final static QName _GetTitlePaper_QNAME = new QName("http://server/", "getTitlePaper");
     private final static QName _SetPasswordResponse_QNAME = new QName("http://server/", "setPasswordResponse");
+    private final static QName _Equals_QNAME = new QName("http://server/", "equals");
+    private final static QName _GetPassword_QNAME = new QName("http://server/", "getPassword");
+    private final static QName _GetIdPaper_QNAME = new QName("http://server/", "getIdPaper");
+    private final static QName _GetUsername_QNAME = new QName("http://server/", "getUsername");
+    private final static QName _GetTitlePaperResponse_QNAME = new QName("http://server/", "getTitlePaperResponse");
+    private final static QName _GetIdPaperResponse_QNAME = new QName("http://server/", "getIdPaperResponse");
+    private final static QName _SetUsernameResponse_QNAME = new QName("http://server/", "setUsernameResponse");
+    private final static QName _GetName_QNAME = new QName("http://server/", "getName");
+    private final static QName _SetName_QNAME = new QName("http://server/", "setName");
+    private final static QName _SetPassword_QNAME = new QName("http://server/", "setPassword");
     private final static QName _EqualsResponse_QNAME = new QName("http://server/", "equalsResponse");
     private final static QName _SetAdminResponse_QNAME = new QName("http://server/", "setAdminResponse");
-    private final static QName _Equals_QNAME = new QName("http://server/", "equals");
     private final static QName _SetSurname_QNAME = new QName("http://server/", "setSurname");
-    private final static QName _GetPassword_QNAME = new QName("http://server/", "getPassword");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: stub
@@ -62,14 +64,6 @@ public class ObjectFactory {
      */
     public SetName createSetName() {
         return new SetName();
-    }
-
-    /**
-     * Create an instance of {@link SetNameResponse }
-     * 
-     */
-    public SetNameResponse createSetNameResponse() {
-        return new SetNameResponse();
     }
 
     /**
@@ -89,22 +83,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link IsAdminResponse }
-     * 
-     */
-    public IsAdminResponse createIsAdminResponse() {
-        return new IsAdminResponse();
-    }
-
-    /**
-     * Create an instance of {@link SetUsername }
-     * 
-     */
-    public SetUsername createSetUsername() {
-        return new SetUsername();
-    }
-
-    /**
      * Create an instance of {@link SetUsernameResponse }
      * 
      */
@@ -113,19 +91,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetNameResponse }
+     * Create an instance of {@link GetTitlePaperResponse }
      * 
      */
-    public GetNameResponse createGetNameResponse() {
-        return new GetNameResponse();
-    }
-
-    /**
-     * Create an instance of {@link SetSurnameResponse }
-     * 
-     */
-    public SetSurnameResponse createSetSurnameResponse() {
-        return new SetSurnameResponse();
+    public GetTitlePaperResponse createGetTitlePaperResponse() {
+        return new GetTitlePaperResponse();
     }
 
     /**
@@ -134,22 +104,6 @@ public class ObjectFactory {
      */
     public GetIdPaperResponse createGetIdPaperResponse() {
         return new GetIdPaperResponse();
-    }
-
-    /**
-     * Create an instance of {@link IsAdmin }
-     * 
-     */
-    public IsAdmin createIsAdmin() {
-        return new IsAdmin();
-    }
-
-    /**
-     * Create an instance of {@link GetUsernameResponse }
-     * 
-     */
-    public GetUsernameResponse createGetUsernameResponse() {
-        return new GetUsernameResponse();
     }
 
     /**
@@ -169,14 +123,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetPassword }
-     * 
-     */
-    public GetPassword createGetPassword() {
-        return new GetPassword();
-    }
-
-    /**
      * Create an instance of {@link SetSurname }
      * 
      */
@@ -193,14 +139,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Equals }
-     * 
-     */
-    public Equals createEquals() {
-        return new Equals();
-    }
-
-    /**
      * Create an instance of {@link EqualsResponse }
      * 
      */
@@ -209,11 +147,91 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SetNameResponse }
+     * 
+     */
+    public SetNameResponse createSetNameResponse() {
+        return new SetNameResponse();
+    }
+
+    /**
+     * Create an instance of {@link IsAdminResponse }
+     * 
+     */
+    public IsAdminResponse createIsAdminResponse() {
+        return new IsAdminResponse();
+    }
+
+    /**
+     * Create an instance of {@link SetUsername }
+     * 
+     */
+    public SetUsername createSetUsername() {
+        return new SetUsername();
+    }
+
+    /**
+     * Create an instance of {@link GetNameResponse }
+     * 
+     */
+    public GetNameResponse createGetNameResponse() {
+        return new GetNameResponse();
+    }
+
+    /**
+     * Create an instance of {@link SetSurnameResponse }
+     * 
+     */
+    public SetSurnameResponse createSetSurnameResponse() {
+        return new SetSurnameResponse();
+    }
+
+    /**
+     * Create an instance of {@link IsAdmin }
+     * 
+     */
+    public IsAdmin createIsAdmin() {
+        return new IsAdmin();
+    }
+
+    /**
+     * Create an instance of {@link GetUsernameResponse }
+     * 
+     */
+    public GetUsernameResponse createGetUsernameResponse() {
+        return new GetUsernameResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetPassword }
+     * 
+     */
+    public GetPassword createGetPassword() {
+        return new GetPassword();
+    }
+
+    /**
+     * Create an instance of {@link Equals }
+     * 
+     */
+    public Equals createEquals() {
+        return new Equals();
+    }
+
+    /**
      * Create an instance of {@link GetPasswordResponse }
      * 
      */
     public GetPasswordResponse createGetPasswordResponse() {
         return new GetPasswordResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetTitlePaper }
+     * 
+     */
+    public GetTitlePaper createGetTitlePaper() {
+        return new GetTitlePaper();
     }
 
     /**
@@ -249,39 +267,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetIdPaper }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server/", name = "getIdPaper")
-    public JAXBElement<GetIdPaper> createGetIdPaper(GetIdPaper value) {
-        return new JAXBElement<GetIdPaper>(_GetIdPaper_QNAME, GetIdPaper.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetUsername }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server/", name = "getUsername")
-    public JAXBElement<GetUsername> createGetUsername(GetUsername value) {
-        return new JAXBElement<GetUsername>(_GetUsername_QNAME, GetUsername.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetUsernameResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://server/", name = "getUsernameResponse")
     public JAXBElement<GetUsernameResponse> createGetUsernameResponse(GetUsernameResponse value) {
         return new JAXBElement<GetUsernameResponse>(_GetUsernameResponse_QNAME, GetUsernameResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetIdPaperResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server/", name = "getIdPaperResponse")
-    public JAXBElement<GetIdPaperResponse> createGetIdPaperResponse(GetIdPaperResponse value) {
-        return new JAXBElement<GetIdPaperResponse>(_GetIdPaperResponse_QNAME, GetIdPaperResponse.class, null, value);
     }
 
     /**
@@ -330,48 +321,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetUsernameResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server/", name = "setUsernameResponse")
-    public JAXBElement<SetUsernameResponse> createSetUsernameResponse(SetUsernameResponse value) {
-        return new JAXBElement<SetUsernameResponse>(_SetUsernameResponse_QNAME, SetUsernameResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetName }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server/", name = "getName")
-    public JAXBElement<GetName> createGetName(GetName value) {
-        return new JAXBElement<GetName>(_GetName_QNAME, GetName.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetName }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server/", name = "setName")
-    public JAXBElement<SetName> createSetName(SetName value) {
-        return new JAXBElement<SetName>(_SetName_QNAME, SetName.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SetNameResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://server/", name = "setNameResponse")
     public JAXBElement<SetNameResponse> createSetNameResponse(SetNameResponse value) {
         return new JAXBElement<SetNameResponse>(_SetNameResponse_QNAME, SetNameResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetPassword }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server/", name = "setPassword")
-    public JAXBElement<SetPassword> createSetPassword(SetPassword value) {
-        return new JAXBElement<SetPassword>(_SetPassword_QNAME, SetPassword.class, null, value);
     }
 
     /**
@@ -411,12 +366,111 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetTitlePaper }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getTitlePaper")
+    public JAXBElement<GetTitlePaper> createGetTitlePaper(GetTitlePaper value) {
+        return new JAXBElement<GetTitlePaper>(_GetTitlePaper_QNAME, GetTitlePaper.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SetPasswordResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://server/", name = "setPasswordResponse")
     public JAXBElement<SetPasswordResponse> createSetPasswordResponse(SetPasswordResponse value) {
         return new JAXBElement<SetPasswordResponse>(_SetPasswordResponse_QNAME, SetPasswordResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Equals }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "equals")
+    public JAXBElement<Equals> createEquals(Equals value) {
+        return new JAXBElement<Equals>(_Equals_QNAME, Equals.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPassword }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getPassword")
+    public JAXBElement<GetPassword> createGetPassword(GetPassword value) {
+        return new JAXBElement<GetPassword>(_GetPassword_QNAME, GetPassword.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetIdPaper }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getIdPaper")
+    public JAXBElement<GetIdPaper> createGetIdPaper(GetIdPaper value) {
+        return new JAXBElement<GetIdPaper>(_GetIdPaper_QNAME, GetIdPaper.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetUsername }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getUsername")
+    public JAXBElement<GetUsername> createGetUsername(GetUsername value) {
+        return new JAXBElement<GetUsername>(_GetUsername_QNAME, GetUsername.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetTitlePaperResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getTitlePaperResponse")
+    public JAXBElement<GetTitlePaperResponse> createGetTitlePaperResponse(GetTitlePaperResponse value) {
+        return new JAXBElement<GetTitlePaperResponse>(_GetTitlePaperResponse_QNAME, GetTitlePaperResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetIdPaperResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getIdPaperResponse")
+    public JAXBElement<GetIdPaperResponse> createGetIdPaperResponse(GetIdPaperResponse value) {
+        return new JAXBElement<GetIdPaperResponse>(_GetIdPaperResponse_QNAME, GetIdPaperResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetUsernameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setUsernameResponse")
+    public JAXBElement<SetUsernameResponse> createSetUsernameResponse(SetUsernameResponse value) {
+        return new JAXBElement<SetUsernameResponse>(_SetUsernameResponse_QNAME, SetUsernameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetName }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "getName")
+    public JAXBElement<GetName> createGetName(GetName value) {
+        return new JAXBElement<GetName>(_GetName_QNAME, GetName.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetName }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setName")
+    public JAXBElement<SetName> createSetName(SetName value) {
+        return new JAXBElement<SetName>(_SetName_QNAME, SetName.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetPassword }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server/", name = "setPassword")
+    public JAXBElement<SetPassword> createSetPassword(SetPassword value) {
+        return new JAXBElement<SetPassword>(_SetPassword_QNAME, SetPassword.class, null, value);
     }
 
     /**
@@ -438,30 +492,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Equals }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server/", name = "equals")
-    public JAXBElement<Equals> createEquals(Equals value) {
-        return new JAXBElement<Equals>(_Equals_QNAME, Equals.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SetSurname }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://server/", name = "setSurname")
     public JAXBElement<SetSurname> createSetSurname(SetSurname value) {
         return new JAXBElement<SetSurname>(_SetSurname_QNAME, SetSurname.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetPassword }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server/", name = "getPassword")
-    public JAXBElement<GetPassword> createGetPassword(GetPassword value) {
-        return new JAXBElement<GetPassword>(_GetPassword_QNAME, GetPassword.class, null, value);
     }
 
 }

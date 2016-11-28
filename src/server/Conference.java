@@ -16,8 +16,9 @@ public class Conference {
 		users.add(new Admin("admin", "admin", "Sigismondo", "Malatesta"));
 	}
 
-	public synchronized void register(String username, String password, String name, String surname, String idPaper) {
-		Participant p = new Participant(username, password, name, surname, idPaper);
+	public synchronized void register(String username, String password, String name, String surname, String idPaper,
+			String titlePaper) {
+		Participant p = new Participant(username, password, name, surname, idPaper, titlePaper);
 		// La users.indexOf(user) funziona grazie all'override del metodo
 		// equals nella classe Participant. In sostanza, la indexOf non
 		// sfrutta più il metodo equals implementato in Object ma quello
@@ -43,20 +44,22 @@ public class Conference {
 		throw new RuntimeException("User not registered.");
 	}
 
-	public synchronized List<String> getAllIdPapers(W3CEndpointReference ref) {
+	public synchronized List<String[]> getAllPapers(W3CEndpointReference ref) {
 		Admin user = Admin.manager.resolve(ref);
 		if (user != null) {
-			List<String> idPaperList = new ArrayList<>();
+			List<String[]> paperList = new ArrayList<>();
 
 			for (User u : users) {
-				if (!u.isAdmin())
-					idPaperList.add(((Participant) u).getIdPaper());
+				if (!u.isAdmin()) {
+					Participant p = (Participant) u;
+					paperList.add(new String[] { p.getIdPaper(), p.getTitlePaper() });
+				}
 			}
-			return idPaperList;
+			return paperList;
 		} else
 			throw new RuntimeException("Only admins can request the id papers list.");
 	}
-	
+
 	public synchronized List<ParticipantBean> getAllParticipants(W3CEndpointReference ref) {
 		Admin user = Admin.manager.resolve(ref);
 		if (user != null) {
@@ -71,6 +74,7 @@ public class Conference {
 					pb.name = p.getName();
 					pb.surname = p.getSurname();
 					pb.idPaper = p.getIdPaper();
+					pb.titlePaper = p.getTitlePaper();
 					pb.isAdmin = p.isAdmin();
 					participantList.add(pb);
 				}

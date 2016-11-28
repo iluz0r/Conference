@@ -13,14 +13,21 @@ public class Participant extends User {
 
 	public static StatefulWebServiceManager<Participant> manager;
 	private String idPaper;
+	private String titlePaper;
 
-	public Participant(String username, String password, String name, String surname, String idPaper) {
+	public Participant(String username, String password, String name, String surname, String idPaper,
+			String titlePaper) {
 		super(username, password, name, surname, false);
 		this.idPaper = idPaper;
+		this.titlePaper = titlePaper;
 	}
 
 	public String getIdPaper() {
 		return idPaper;
+	}
+
+	public String getTitlePaper() {
+		return titlePaper;
 	}
 
 	@Override

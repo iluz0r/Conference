@@ -25,6 +25,7 @@ import stub.ConferenceService;
 import stub.Participant;
 import stub.ParticipantBean;
 import stub.ParticipantService;
+import stub.StringArray;
 
 public class ClientGUI {
 
@@ -56,6 +57,8 @@ public class ClientGUI {
 	private W3CEndpointReference ref;
 	private Participant participant;
 	private Admin admin;
+	private JLabel titlePaperLabel;
+	private JTextField titlePaperTextField;
 
 	/**
 	 * Launch the application.
@@ -86,7 +89,7 @@ public class ClientGUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Client GUI");
-		frame.setBounds(100, 100, 431, 231);
+		frame.setBounds(100, 100, 431, 245);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[grow]", "[grow][grow]"));
 
@@ -158,6 +161,13 @@ public class ClientGUI {
 
 		registerButton = new JButton("Register");
 		registerButton.addActionListener(new RegisterButtonListener());
+
+		titlePaperLabel = new JLabel("Title paper:");
+		registerPanel.add(titlePaperLabel, "cell 3 2,alignx left");
+
+		titlePaperTextField = new JTextField();
+		registerPanel.add(titlePaperTextField, "cell 4 2,growx");
+		titlePaperTextField.setColumns(10);
 		registerPanel.add(registerButton, "cell 0 3 5 1,growx");
 
 		operationPanel = new JPanel();
@@ -198,8 +208,9 @@ public class ClientGUI {
 				String name = nameTextField.getText();
 				String surname = surnameTextField.getText();
 				String idPaper = idPaperTextField.getText();
+				String titlePaper = titlePaperTextField.getText();
 
-				conference.register(username, password, name, surname, idPaper);
+				conference.register(username, password, name, surname, idPaper, titlePaper);
 				JOptionPane.showMessageDialog(frame, "Registration successful.", "Registration message",
 						JOptionPane.INFORMATION_MESSAGE);
 			} catch (RuntimeException e) {
@@ -261,8 +272,9 @@ public class ClientGUI {
 				JOptionPane.showMessageDialog(frame, "Only participants have a paper", "Error",
 						JOptionPane.ERROR_MESSAGE);
 			else
-				JOptionPane.showMessageDialog(frame, "Your paper is " + participant.getIdPaper(), "Message",
-						JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(frame,
+						"Your paper ID is " + participant.getIdPaper() + " and title is " + participant.getTitlePaper(),
+						"Message", JOptionPane.INFORMATION_MESSAGE);
 		}
 
 	}
@@ -272,8 +284,8 @@ public class ClientGUI {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			try {
-				List<String> idPaperList = conference.getAllIdPapers(ref);
-				PaperListDialog dialog = new PaperListDialog(idPaperList);
+				List<StringArray> paperList = conference.getAllPapers(ref);
+				PaperListDialog dialog = new PaperListDialog(paperList);
 				dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				dialog.setVisible(true);
 			} catch (RuntimeException e) {

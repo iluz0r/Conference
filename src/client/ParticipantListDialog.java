@@ -22,10 +22,11 @@ public class ParticipantListDialog extends JDialog {
 
 	public ParticipantListDialog(List<ParticipantBean> participantList) {
 		setTitle("Participants list");
-		setBounds(100, 100, 560, 300);
+		setBounds(100, 100, 640, 300);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
-		model = new DefaultTableModel(new Object[][] {}, new String[] { "Username", "Name", "Surname", "ID Paper" }) {
+		model = new DefaultTableModel(new Object[][] {},
+				new String[] { "Username", "Name", "Surname", "ID Paper", "Title Paper" }) {
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -33,13 +34,14 @@ public class ParticipantListDialog extends JDialog {
 				return false;
 			}
 		};
+
 		table = new JTable(model);
 		scrollPane = new JScrollPane(table);
 		getContentPane().add(scrollPane, BorderLayout.CENTER);
 
 		for (ParticipantBean participant : participantList)
 			model.addRow(new Object[] { participant.getUsername(), participant.getName(), participant.getSurname(),
-					participant.getIdPaper() });
+					participant.getIdPaper(), participant.getTitlePaper() });
 	}
 
 }

@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="surname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="idPaper" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="titlePaper" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="isAdmin" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -37,6 +38,7 @@ import javax.xml.bind.annotation.XmlType;
     "name",
     "surname",
     "idPaper",
+    "titlePaper",
     "isAdmin"
 })
 public class ParticipantBean {
@@ -46,6 +48,7 @@ public class ParticipantBean {
     protected String name;
     protected String surname;
     protected String idPaper;
+    protected String titlePaper;
     protected boolean isAdmin;
 
     /**
@@ -166,6 +169,30 @@ public class ParticipantBean {
      */
     public void setIdPaper(String value) {
         this.idPaper = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà titlePaper.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTitlePaper() {
+        return titlePaper;
+    }
+
+    /**
+     * Imposta il valore della proprietà titlePaper.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTitlePaper(String value) {
+        this.titlePaper = value;
     }
 
     /**
