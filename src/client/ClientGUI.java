@@ -62,7 +62,7 @@ public class ClientGUI {
 	private void initialize() {
 		frmClientGui = new JFrame();
 		frmClientGui.setTitle("Client GUI");
-		frmClientGui.setBounds(100, 100, 684, 480);
+		frmClientGui.setBounds(100, 100, 684, 435);
 		frmClientGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmClientGui.getContentPane().setLayout(new MigLayout("", "[grow]", "[grow][grow][grow]"));
 		
@@ -204,14 +204,22 @@ public class ClientGUI {
 		operationPanel = new JPanel();
 		operationPanel.setBorder(new TitledBorder(null, "Operations", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		frmClientGui.getContentPane().add(operationPanel, "cell 0 2,grow");
+		
+		JButton myPaperButton = new JButton("My paper");
 		GroupLayout gl_operationPanel = new GroupLayout(operationPanel);
 		gl_operationPanel.setHorizontalGroup(
 			gl_operationPanel.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 640, Short.MAX_VALUE)
+				.addGroup(gl_operationPanel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(myPaperButton, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(515, Short.MAX_VALUE))
 		);
 		gl_operationPanel.setVerticalGroup(
 			gl_operationPanel.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 0, Short.MAX_VALUE)
+				.addGroup(gl_operationPanel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(myPaperButton)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		operationPanel.setLayout(gl_operationPanel);
 	}
