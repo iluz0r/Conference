@@ -211,7 +211,7 @@ public class ClientGUI {
 		);
 		gl_operationPanel.setVerticalGroup(
 			gl_operationPanel.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 10, Short.MAX_VALUE)
+				.addGap(0, 0, Short.MAX_VALUE)
 		);
 		operationPanel.setLayout(gl_operationPanel);
 	}
