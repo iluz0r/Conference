@@ -5,17 +5,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.TitledBorder;
 import javax.xml.ws.wsaddressing.W3CEndpointReference;
+
 import net.miginfocom.swing.MigLayout;
 import stub.Admin;
 import stub.AdminService;
@@ -24,9 +23,6 @@ import stub.ConferenceService;
 import stub.Participant;
 import stub.ParticipantBean;
 import stub.ParticipantService;
-
-import javax.swing.JButton;
-import javax.swing.JTabbedPane;
 
 public class ClientGUI {
 
@@ -47,7 +43,7 @@ public class ClientGUI {
 	private JButton loginButton;
 	private JButton myPaperButton;	
 	private JButton getAllPaperButton;	
-	private JButton registerStateButton;
+	private JButton getAllParticipantsButton;
 	private JPanel operationPanel;
 	private ConferenceService conferenceService;
 	private Conference conference;
@@ -77,14 +73,6 @@ public class ClientGUI {
 	 * Create the application.
 	 */
 	public ClientGUI() {
-		conferenceService = new ConferenceService();
-		conference = (Conference) conferenceService.getPort(Conference.class);
-		participantService = new ParticipantService();
-		adminService = new AdminService();
-
-		admin = null;
-		user = null;
-		ref = null;
 		initialize();
 	}
 
@@ -94,12 +82,35 @@ public class ClientGUI {
 	private void initialize() {
 		frmClientGui = new JFrame();
 		frmClientGui.setTitle("Client GUI");
-		frmClientGui.setBounds(100, 100, 684, 288);
+		frmClientGui.setBounds(100, 100, 431, 231);
 		frmClientGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmClientGui.getContentPane().setLayout(new MigLayout("", "[grow]", "[grow][grow]"));
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		frmClientGui.getContentPane().add(tabbedPane, "cell 0 0,grow");
+		frmClientGui.getContentPane().add(tabbedPane, "cell 0 0 1 2,grow");
+		
+		JPanel loginPanel = new JPanel();
+		tabbedPane.addTab("Login", null, loginPanel, null);
+		loginPanel.setBorder(new TitledBorder(null, "Login", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		
+		usernameLoginLabel = new JLabel("Username:");
+		
+		passwordLoginLabel = new JLabel("Password:");
+		loginPanel.setLayout(new MigLayout("", "[grow][grow][grow][grow][grow]", "[grow][grow]"));
+		loginPanel.add(usernameLoginLabel, "cell 0 0,growx");
+		
+		usernameLoginTextField = new JTextField();
+		usernameLoginTextField.setColumns(10);
+		loginPanel.add(usernameLoginTextField, "cell 1 0,growx");
+		loginPanel.add(passwordLoginLabel, "cell 3 0,growx");
+		
+		loginButton = new JButton("Login");
+		loginButton.addActionListener(new LoginButtonListener());
+		
+		passwordLoginTextField = new JPasswordField();
+		passwordLoginTextField.setColumns(10);
+		loginPanel.add(passwordLoginTextField, "cell 4 0,growx");
+		loginPanel.add(loginButton, "cell 0 1 5 1,growx");
 		
 		JPanel registerPanel = new JPanel();
 		tabbedPane.addTab("Register", null, registerPanel, null);
@@ -129,156 +140,46 @@ public class ClientGUI {
 		idPaperTextField.setColumns(10);
 		
 		idPaperLabel = new JLabel("Id paper:");
+		registerPanel.setLayout(new MigLayout("", "[grow][grow][grow][grow][grow]", "[grow][grow][grow][grow]"));
+		registerPanel.add(usernameLabel, "cell 0 0,alignx left");
+		registerPanel.add(nameLabel, "cell 0 1,alignx left");
+		registerPanel.add(idPaperLabel, "cell 0 2,alignx left");
+		registerPanel.add(idPaperTextField, "cell 1 2,growx");
+		registerPanel.add(usernameTextField, "cell 1 0,growx");
+		registerPanel.add(nameTextField, "cell 1 1,growx");
+		registerPanel.add(passwordLabel, "cell 3 0,alignx left");
+		registerPanel.add(surnameLabel, "cell 3 1,alignx left");
+		registerPanel.add(surnameTextField, "cell 4 1,growx");
+		registerPanel.add(passwordTextField, "cell 4 0,growx");
 		
 		registerButton = new JButton("Register");
-		registerButton.addActionListener(new registerButtonListener());
-		
-		GroupLayout gl_registerPanel = new GroupLayout(registerPanel);
-		gl_registerPanel.setHorizontalGroup(
-			gl_registerPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_registerPanel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_registerPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_registerPanel.createSequentialGroup()
-							.addComponent(registerButton, GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-							.addContainerGap())
-						.addGroup(gl_registerPanel.createSequentialGroup()
-							.addGroup(gl_registerPanel.createParallelGroup(Alignment.LEADING)
-								.addComponent(usernameLabel)
-								.addComponent(nameLabel)
-								.addComponent(idPaperLabel))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_registerPanel.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_registerPanel.createSequentialGroup()
-									.addComponent(idPaperTextField, GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
-									.addContainerGap())
-								.addGroup(gl_registerPanel.createSequentialGroup()
-									.addGroup(gl_registerPanel.createParallelGroup(Alignment.TRAILING)
-										.addComponent(usernameTextField, GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-										.addComponent(nameTextField, GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
-									.addGap(18)
-									.addGroup(gl_registerPanel.createParallelGroup(Alignment.LEADING)
-										.addComponent(passwordLabel)
-										.addComponent(surnameLabel))
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addGroup(gl_registerPanel.createParallelGroup(Alignment.LEADING)
-										.addComponent(surnameTextField, GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-										.addComponent(passwordTextField, GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
-									.addGap(12))))))
-		);
-		gl_registerPanel.setVerticalGroup(
-			gl_registerPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_registerPanel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_registerPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(usernameLabel)
-						.addComponent(usernameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(passwordLabel)
-						.addComponent(passwordTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_registerPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(nameLabel)
-						.addComponent(surnameLabel)
-						.addComponent(surnameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(nameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_registerPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(idPaperTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(idPaperLabel))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(registerButton, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(174, Short.MAX_VALUE))
-		);
-		registerPanel.setLayout(gl_registerPanel);
-		
-		JPanel loginPanel = new JPanel();
-		tabbedPane.addTab("Login", null, loginPanel, null);
-		loginPanel.setBorder(new TitledBorder(null, "Login", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		
-		usernameLoginLabel = new JLabel("Username:");
-		
-		usernameLoginTextField = new JTextField();
-		usernameLoginTextField.setColumns(10);
-		
-		passwordLoginLabel = new JLabel("Password:");
-		
-		passwordLoginTextField = new JPasswordField();
-		passwordLoginTextField.setColumns(10);
-		
-		loginButton = new JButton("Login");
-		loginButton.addActionListener(new loginButtonListener());
-		
-		GroupLayout gl_loginPanel = new GroupLayout(loginPanel);
-		gl_loginPanel.setHorizontalGroup(
-			gl_loginPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_loginPanel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_loginPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_loginPanel.createSequentialGroup()
-							.addComponent(usernameLoginLabel)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(usernameLoginTextField, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-							.addGap(18)
-							.addComponent(passwordLoginLabel)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(passwordLoginTextField, GroupLayout.PREFERRED_SIZE, 243, GroupLayout.PREFERRED_SIZE))
-						.addComponent(loginButton, GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE))
-					.addContainerGap())
-		);
-		gl_loginPanel.setVerticalGroup(
-			gl_loginPanel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_loginPanel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_loginPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(usernameLoginTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(usernameLoginLabel)
-						.addComponent(passwordLoginLabel)
-						.addComponent(passwordLoginTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(loginButton)
-					.addContainerGap(194, Short.MAX_VALUE))
-		);
-		loginPanel.setLayout(gl_loginPanel);
+		registerButton.addActionListener(new RegisterButtonListener());
+		registerPanel.add(registerButton, "cell 0 3 5 1,growx");
 		
 		operationPanel = new JPanel();
 		tabbedPane.addTab("Operations", null, operationPanel, null);
 		operationPanel.setBorder(new TitledBorder(null, "Operations", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		operationPanel.setLayout(new MigLayout("", "[grow]", "[grow][grow][grow]"));
 		
-		myPaperButton = new JButton("My paper");
-		myPaperButton.addActionListener(new myPaperButtonListener());
+		myPaperButton = new JButton("Get my paper");
+		myPaperButton.addActionListener(new MyPaperButtonListener());
+		operationPanel.add(myPaperButton, "cell 0 0,growx");
 		
 		getAllPaperButton = new JButton("Get all paper");
-		getAllPaperButton.addActionListener(new getAllPaperButtonListener());
+		getAllPaperButton.addActionListener(new AllPaperButtonListener());
+		operationPanel.add(getAllPaperButton, "cell 0 1,growx");
 		
-		registerStateButton = new JButton("Register state");
-		registerStateButton.addActionListener(new registerStateButtonListener());
+		getAllParticipantsButton = new JButton("Get all participants");
+		getAllParticipantsButton.addActionListener(new AllParticipantsButtonListener());
+		operationPanel.add(getAllParticipantsButton, "cell 0 2,growx");
 		
-		GroupLayout gl_operationPanel = new GroupLayout(operationPanel);
-		gl_operationPanel.setHorizontalGroup(
-			gl_operationPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_operationPanel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(myPaperButton, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
-					.addGap(134)
-					.addComponent(getAllPaperButton, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-					.addComponent(registerStateButton, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-		);
-		gl_operationPanel.setVerticalGroup(
-			gl_operationPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_operationPanel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_operationPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(myPaperButton)
-						.addComponent(registerStateButton)
-						.addComponent(getAllPaperButton))
-					.addContainerGap(32, Short.MAX_VALUE))
-		);
-		operationPanel.setLayout(gl_operationPanel);
+		conferenceService = new ConferenceService();
+		conference = (Conference) conferenceService.getPort(Conference.class);
+		participantService = new ParticipantService();
+		adminService = new AdminService();
 	}
 	
-	private class registerButtonListener implements ActionListener {
+	private class RegisterButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -295,7 +196,7 @@ public class ClientGUI {
 		}
 	}
 	
-	private class loginButtonListener implements ActionListener {
+	private class LoginButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -316,9 +217,10 @@ public class ClientGUI {
 				System.err.println(e.getMessage());
 			}
 		}
+		
 	}
 	
-	private class myPaperButtonListener implements ActionListener {
+	private class MyPaperButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -328,9 +230,10 @@ public class ClientGUI {
 				System.err.println(e.getMessage());
 			}
 		}
+		
 	}
 	
-	private class getAllPaperButtonListener implements ActionListener {
+	private class AllPaperButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -343,9 +246,10 @@ public class ClientGUI {
 				System.err.println(e.getMessage());
 			}
 		}
+		
 	}
 	
-	private class registerStateButtonListener implements ActionListener {
+	private class AllParticipantsButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -358,5 +262,6 @@ public class ClientGUI {
 				System.err.println(e.getMessage());
 			}
 		}
+		
 	}
 }
