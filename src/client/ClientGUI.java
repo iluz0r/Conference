@@ -31,6 +31,7 @@ public class ClientGUI {
 	private JLabel passwordLoginLabel;
 	private JPasswordField passwordLoginTextField;
 	private JButton loginButton;
+	private JPanel operationPanel;
 
 	/**
 	 * Launch the application.
@@ -63,7 +64,7 @@ public class ClientGUI {
 		frmClientGui.setTitle("Client GUI");
 		frmClientGui.setBounds(100, 100, 684, 480);
 		frmClientGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmClientGui.getContentPane().setLayout(new MigLayout("", "[grow]", "[grow][grow]"));
+		frmClientGui.getContentPane().setLayout(new MigLayout("", "[grow]", "[grow][grow][grow]"));
 		
 		JPanel registerPanel = new JPanel();
 		registerPanel.setBorder(new TitledBorder(null, "Register", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -199,5 +200,19 @@ public class ClientGUI {
 					.addContainerGap())
 		);
 		loginPanel.setLayout(gl_loginPanel);
+		
+		operationPanel = new JPanel();
+		operationPanel.setBorder(new TitledBorder(null, "Operations", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		frmClientGui.getContentPane().add(operationPanel, "cell 0 2,grow");
+		GroupLayout gl_operationPanel = new GroupLayout(operationPanel);
+		gl_operationPanel.setHorizontalGroup(
+			gl_operationPanel.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 640, Short.MAX_VALUE)
+		);
+		gl_operationPanel.setVerticalGroup(
+			gl_operationPanel.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 10, Short.MAX_VALUE)
+		);
+		operationPanel.setLayout(gl_operationPanel);
 	}
 }
