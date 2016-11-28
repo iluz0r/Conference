@@ -176,6 +176,8 @@ public class ClientGUI {
 		getAllParticipantsButton = new JButton("Get all participants");
 		getAllParticipantsButton.addActionListener(new AllParticipantButtonListener());
 		operationPanel.add(getAllParticipantsButton, "cell 0 2,growx");
+		
+		tabbedPane.setEnabledAt(2, false);
 
 		try {
 			ConferenceService conferenceService = new ConferenceService();
@@ -212,29 +214,41 @@ public class ClientGUI {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			try {
-				String username = usernameLoginTextField.getText();
-				String password = String.valueOf(passwordLoginTextField.getPassword());
-
-				ref = conference.login(username, password);
+			if (loginButton.getText().equals("Login")) {
 				try {
-					ParticipantService participantService = new ParticipantService();
-					participant = participantService.getPort(ref, Participant.class);
-				} catch (Exception e2) {
-					AdminService adminService = new AdminService();
-					admin = adminService.getPort(ref, Admin.class);
+					String username = usernameLoginTextField.getText();
+					String password = String.valueOf(passwordLoginTextField.getPassword());
+
+					ref = conference.login(username, password);
+					try {
+						ParticipantService participantService = new ParticipantService();
+						participant = participantService.getPort(ref, Participant.class);
+						JOptionPane.showMessageDialog(frame, "Logged in as " + participant.getUsername(),
+								"Login message", JOptionPane.INFORMATION_MESSAGE);
+					} catch (Exception e2) {
+						// Se il W3CEndpointReference non è un Participant viene
+						// lanciata una eccezione (gestita qui)
+						AdminService adminService = new AdminService();
+						admin = adminService.getPort(ref, Admin.class);
+						JOptionPane.showMessageDialog(frame, "Logged in as " + admin.getUsername(), "Login message",
+								JOptionPane.INFORMATION_MESSAGE);
+					}
+					
+					loginButton.setText("Logout");
+					usernameLoginTextField.setEnabled(false);
+					passwordLoginTextField.setEnabled(false);
+					tabbedPane.setEnabledAt(2, true);
+				} catch (RuntimeException e) {
+					JOptionPane.showMessageDialog(frame, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 				}
-
-				if (admin != null) {
-					JOptionPane.showMessageDialog(frame, "Logged in as " + admin.getUsername(), "Login message",
-							JOptionPane.INFORMATION_MESSAGE);
-				} else
-					JOptionPane.showMessageDialog(frame, "Logged in as " + participant.getUsername(), "Login message",
-							JOptionPane.INFORMATION_MESSAGE);
-
-				tabbedPane.setSelectedIndex(2);
-			} catch (RuntimeException e) {
-				JOptionPane.showMessageDialog(frame, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			} else {
+				loginButton.setText("Login");
+				usernameLoginTextField.setEnabled(true);
+				passwordLoginTextField.setEnabled(true);
+				tabbedPane.setEnabledAt(2, false);
+				ref = null;
+				admin = null;
+				participant = null;
 			}
 		}
 
